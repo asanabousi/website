@@ -3,11 +3,7 @@
    Fetches all inventory, handles filters/search/sort.
    ================================================ */
 
-const INV_CONFIG = {
-  baseId: 'appdRYnYsp57lvv6T',
-  token: 'REMOVED_AIRTABLE_TOKEN',
-  table: 'Inventory'
-};
+const API_BASE = 'https://unfazed-chatbot.unfazedmotors.workers.dev';
 
 (function () {
   const grid = document.getElementById('invGrid');
