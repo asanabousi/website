@@ -1,0 +1,216 @@
+/* ================================================
+   UNFAZED MOTORS — Inventory Page Styles
+   ================================================ */
+
+.page-hero {
+  padding: 140px 40px 60px;
+  position: relative; overflow: hidden;
+  background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+  border-bottom: 1px solid var(--line);
+}
+.page-hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse 60% 50% at 20% 50%, rgba(255,45,45,0.05), transparent 60%);
+}
+.page-hero-inner { position: relative; z-index: 2; }
+.page-hero .eyebrow { margin-bottom: 20px; }
+.page-hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(60px, 10vw, 140px); line-height: 0.85; letter-spacing: -0.015em;
+  margin-bottom: 16px;
+}
+.page-hero h1 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; text-transform: lowercase; }
+.page-hero-meta {
+  display: flex; gap: 32px; align-items: center; flex-wrap: wrap;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mute);
+  margin-top: 24px;
+}
+.page-hero-meta .inv-count b { color: var(--ink); }
+
+/* ---- Inventory toolbar ---- */
+.inv-toolbar {
+  padding: 20px 40px; border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  background: #080808; position: sticky; top: 65px; z-index: 50;
+}
+.inv-search-wrap {
+  flex: 1; min-width: 200px; max-width: 400px;
+  position: relative;
+}
+.inv-search {
+  width: 100%; background: var(--card); border: 1px solid var(--line);
+  border-radius: 999px; padding: 10px 18px 10px 40px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em;
+  color: var(--ink); outline: none; transition: border-color .2s;
+}
+.inv-search:focus { border-color: var(--line-hi); }
+.inv-search::placeholder { color: var(--mute); }
+.inv-search-icon {
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  color: var(--mute); pointer-events: none;
+}
+.inv-sort {
+  background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+  padding: 10px 18px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em;
+  color: var(--ink); outline: none; cursor: pointer;
+  transition: border-color .2s;
+  appearance: none; -webkit-appearance: none;
+  padding-right: 32px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' stroke='%238a8a8a' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+.inv-sort:focus { border-color: var(--line-hi); }
+.inv-result-count {
+  margin-left: auto;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--mute);
+  white-space: nowrap;
+}
+
+/* ---- Category chips in toolbar ---- */
+.inv-cats { display: flex; gap: 8px; flex-wrap: wrap; padding: 12px 40px; border-bottom: 1px solid var(--line); background: #080808; }
+
+/* ---- Main layout ---- */
+.inv-layout {
+  display: grid; grid-template-columns: 260px 1fr;
+  gap: 0; min-height: 60vh;
+}
+.inv-sidebar {
+  border-right: 1px solid var(--line);
+  padding: 32px 28px;
+  position: sticky; top: 120px; align-self: start; height: fit-content;
+}
+.sidebar-section { margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.sidebar-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.sidebar-section.hidden { display: none; }
+.sidebar-section h5 {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--mute); margin-bottom: 16px;
+}
+
+/* Collapsible toggle */
+.sidebar-toggle {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  background: none; border: none; padding: 4px 0; cursor: pointer;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ink); transition: color .2s;
+  margin-bottom: 0;
+}
+.sidebar-toggle:hover { color: var(--accent); }
+.sidebar-toggle .toggle-count {
+  color: var(--accent); margin-left: 8px; letter-spacing: 0.1em; font-size: 10px;
+}
+.sidebar-toggle .toggle-count:empty { display: none; }
+.sidebar-toggle .toggle-icon {
+  font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--mute);
+  transition: transform .25s ease, color .2s ease; line-height: 1;
+}
+.sidebar-toggle:hover .toggle-icon { color: var(--accent); }
+.sidebar-toggle[aria-expanded="true"] .toggle-icon { transform: rotate(45deg); color: var(--accent); }
+
+.sidebar-makes {
+  display: flex; flex-direction: column; gap: 10px;
+  margin-top: 16px;
+  max-height: 600px; overflow: hidden;
+  transition: max-height .3s ease, margin-top .3s ease, opacity .25s ease;
+}
+.sidebar-makes.collapsed {
+  max-height: 0; margin-top: 0; opacity: 0; pointer-events: none;
+}
+.sidebar-make-item {
+  display: flex; align-items: center; gap: 10px; cursor: pointer;
+  font-size: 14px; color: #ccc; transition: color .2s;
+}
+.sidebar-make-item:hover { color: var(--ink); }
+.sidebar-make-item input[type="checkbox"] { accent-color: var(--accent); width: 14px; height: 14px; cursor: pointer; flex-shrink: 0; }
+.sidebar-make-item .make-count {
+  margin-left: auto;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 0.1em; color: var(--mute);
+}
+.sidebar-status { display: flex; flex-direction: column; gap: 8px; }
+.sidebar-status label { display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 14px; color: #ccc; transition: color .2s; }
+.sidebar-status label:hover { color: var(--ink); }
+.sidebar-status input[type="checkbox"] { accent-color: var(--accent); width: 14px; height: 14px; cursor: pointer; }
+
+.sidebar-clear {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--accent); cursor: pointer; background: none; border: none;
+  padding: 0; transition: opacity .2s;
+}
+.sidebar-clear:hover { opacity: 0.7; }
+
+/* Make filter list scrollable when long */
+#sidebarMakes:not(.collapsed),
+#sidebarBodyType:not(.collapsed),
+#sidebarModels:not(.collapsed) {
+  max-height: 280px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 6px;
+}
+#sidebarMakes::-webkit-scrollbar,
+#sidebarBodyType::-webkit-scrollbar,
+#sidebarModels::-webkit-scrollbar { width: 4px; }
+#sidebarMakes::-webkit-scrollbar-thumb,
+#sidebarBodyType::-webkit-scrollbar-thumb,
+#sidebarModels::-webkit-scrollbar-thumb { background: var(--line-hi); border-radius: 2px; }
+#sidebarMakes::-webkit-scrollbar-thumb:hover,
+#sidebarBodyType::-webkit-scrollbar-thumb:hover,
+#sidebarModels::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* Range inputs (Year, Odometer) */
+.range-row { display: flex; gap: 10px; }
+.range-field { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.range-field label {
+  font-family: 'JetBrains Mono', monospace; font-size: 9px;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute);
+}
+.range-field input {
+  background: var(--bg); border: 1px solid var(--line);
+  border-radius: 6px; padding: 9px 12px; color: var(--ink);
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  outline: none; transition: border-color .2s; width: 100%;
+  -webkit-appearance: none;
+}
+.range-field input:focus { border-color: var(--accent); }
+.range-field input::placeholder { color: var(--mute); }
+
+/* ---- Inventory results pane ---- */
+.inv-results { padding: 32px 40px; }
+.inv-results .inv-grid { grid-template-columns: repeat(3, 1fr); }
+.inv-no-results {
+  text-align: center; padding: 80px 20px; color: var(--mute);
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+}
+.inv-no-results h3 { font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 0.01em; color: #333; margin-bottom: 16px; font-weight: 400; }
+
+/* Status pill on card */
+.status-pill {
+  position: absolute; bottom: 14px; right: 14px;
+  font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 4px 8px; border-radius: 3px;
+}
+.status-pill.in-stock { background: rgba(58,223,106,0.12); color: #3adf6a; border: 1px solid rgba(58,223,106,0.25); }
+.status-pill.reserved { background: rgba(245,158,11,0.12); color: #f59e0b; border: 1px solid rgba(245,158,11,0.25); }
+.status-pill.sold { background: rgba(255,45,45,0.12); color: var(--accent); border: 1px solid rgba(255,45,45,0.25); }
+.status-pill.pending { background: rgba(138,138,138,0.12); color: var(--mute); border: 1px solid rgba(138,138,138,0.25); }
+
+/* ---- Responsive ---- */
+@media (max-width: 1100px) {
+  .inv-results .inv-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  .inv-layout { grid-template-columns: 1fr; }
+  .inv-sidebar { position: static; border-right: none; border-bottom: 1px solid var(--line); padding: 24px; }
+  .inv-cats { padding: 12px 24px; }
+  .inv-toolbar { padding: 16px 24px; top: 57px; }
+  .page-hero { padding: 110px 24px 40px; }
+  .inv-results { padding: 24px; }
+  .inv-results .inv-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .inv-results .inv-grid { grid-template-columns: 1fr; }
+}

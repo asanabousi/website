@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vehicle Detail — Unfazed Motors</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/logo-damaged.png">
+<link rel="apple-touch-icon" href="assets/logo-damaged.png">
+<meta name="description" content="Vehicle details — Unfazed Motors, Edmonton, Alberta.">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/vehicle-page.css">
+<link rel="stylesheet" href="css/chatbot.css">
+</head>
+<body class="vehicle-page">
+
+<header id="hdr">
+  <a href="index.html" class="brand">
+    <div class="brand-mark"><img src="assets/logo-damaged.png" alt="Unfazed Motors"></div>
+    <div class="brand-name">UNFAZED<small>MOTORS · EST. 2026</small></div>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="inventory.html">Inventory</a></li>
+      <li><a href="financing.html">Financing</a></li>
+      <li><a href="consignment.html">Consignment</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#apparel">Apparel</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <a href="index.html#contact" class="header-cta">Showroom Open</a>
+  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="inventory.html">Inventory</a>
+  <a href="financing.html">Financing</a>
+  <a href="consignment.html">Consignment</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="tel:17802361276" class="mob-cta">780 236 1276</a>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="sep">/</span>
+  <a href="inventory.html">Inventory</a>
+  <span class="sep">/</span>
+  <span class="current" id="breadcrumbName">Vehicle</span>
+</div>
+
+<!-- Vehicle content injected here by vehicle-page.js -->
+<div id="vehicleWrap"></div>
+
+<!-- Availability modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Check Availability</div>
+        <div class="modal-subtitle">We'll confirm status and reach out within hours</div>
+      </div>
+      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+    </div>
+    <div id="formContent">
+      <form class="lead-form" id="leadForm" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="leadName">Full Name *</label>
+            <input type="text" id="leadName" name="name" placeholder="Your name" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="leadPhone">Phone *</label>
+            <input type="tel" id="leadPhone" name="phone" placeholder="780 000 0000" required autocomplete="tel">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="leadEmail">Email</label>
+          <input type="email" id="leadEmail" name="email" placeholder="you@example.com" autocomplete="email">
+        </div>
+        <input type="hidden" id="modalVehicle" name="vehicle">
+        <div class="form-field">
+          <label for="leadNotes">Message (optional)</label>
+          <textarea id="leadNotes" name="notes" placeholder="Questions, preferred contact time, trade-in details…"></textarea>
+        </div>
+        <button type="submit" class="form-submit-btn">Send Message <span style="font-size:14px">↗</span></button>
+        <p class="form-note">No commitment required. We don't share your info with anyone.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-top">
+    <div class="foot-brand">
+      <a href="index.html" class="brand">
+        <div class="brand-mark"><img src="assets/logo-damaged.png" alt=""></div>
+        <div class="brand-name">UNFAZED<small>MOTORS · EST. 2026</small></div>
+      </a>
+      <p>Unfazed Motors — Built for those who move without fear. Premium powersports, straight-talk sales, hand-picked inventory. Licensed motor dealer, Edmonton, Alberta.</p>
+    </div>
+    <div class="foot-col">
+      <h6>Shop</h6>
+      <ul>
+        <li><a href="inventory.html">Inventory</a></li>
+        <li><a href="financing.html">Financing</a></li>
+      <li><a href="consignment.html">Consignment</a></li>
+        <li><a href="consignment.html">Trade-In / Consignment</a></li>
+        <li><a href="#">Parts & Gear</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h6>Company</h6>
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h6>Visit</h6>
+      <ul>
+        <li style="color:#ccc">9620 51 Avenue NW<br>Edmonton, AB</li>
+        <li><a href="tel:17802361276">780 236 1276</a></li>
+        <li><a href="mailto:hello@unfazedmotors.ca">hello@unfazedmotors.ca</a></li>
+        <li style="color:#ccc">Mon–Sun · 9:00–19:00</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-mega"><h1>UNFAZED</h1><span class="stamp">Stay unfazed.</span></div>
+  <div class="foot-bottom">
+    <span>© 2026 Unfazed Motors · In partnership with Guru Auto &amp; Powersports (AMVIC Licensed Dealer)</span>
+    <span><a href="#">Privacy</a> · <a href="#">Terms</a></span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/vehicle-page.js"></script>
+<div id="unfazedChatRoot"></div>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unfazed Motors — Stay Unfazed.</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/logo-damaged.png">
+<link rel="apple-touch-icon" href="assets/logo-damaged.png">
+<meta name="description" content="Unfazed Motors — Premium motorcycles and powersports in Edmonton, Alberta. Cash or finance. No pressure. Stay unfazed.">
+<meta property="og:title" content="Unfazed Motors — Stay Unfazed.">
+<meta property="og:description" content="Premium motorcycles and powersports. Edmonton, Alberta. Cash or finance. No pressure.">
+<meta property="og:image" content="assets/logo-damaged.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Preload helmet images for intro animation before any paint -->
+<link rel="preload" href="assets/logo.png" as="image">
+<link rel="preload" href="assets/logo-damaged.png" as="image">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/chatbot.css">
+<!-- Synchronously add has-intro class before paint to prevent FOUC -->
+<script>document.documentElement.classList.add('has-intro');</script>
+</head>
+<body>
+
+<!-- ========== INTRO ANIMATION ========== -->
+<div class="intro" id="intro">
+  <div class="intro-sky"></div>
+  <div class="intro-grid-lines"></div>
+  <div class="intro-stage">
+    <div class="intro-flash" id="intFlash"></div>
+    <div class="intro-helmet-wrap" id="intHelmet">
+      <img src="assets/logo.png" alt="" class="intro-helmet">
+      <img src="assets/logo-damaged.png" alt="" class="intro-helmet-damaged">
+      <div class="intro-streaks">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="intro-wordmark" id="intWord">
+      <div class="intro-mono">EST · 2026</div>
+      <h1 class="intro-title">UNFAZED</h1>
+      <div class="intro-sub">
+        <span class="line"></span>
+        <span>MOTORS · EDMONTON</span>
+        <span class="line"></span>
+      </div>
+      <div class="intro-tag"><em>Stay unfazed.</em></div>
+    </div>
+    <div class="intro-cue" id="intCue">
+      <span>Scroll to enter</span>
+      <div class="cue-bar"><div class="cue-fill" id="cueFill"></div></div>
+    </div>
+  </div>
+</div>
+<div class="intro-spacer" id="introSpacer"></div>
+
+<!-- ========== SITE ========== -->
+<div class="home-page">
+
+<header id="hdr">
+  <a href="index.html" class="brand">
+    <div class="brand-mark"><img src="assets/logo-damaged.png" alt="Unfazed Motors"></div>
+    <div class="brand-name">UNFAZED<small>MOTORS · EST. 2026</small></div>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="inventory.html">Inventory</a></li>
+      <li><a href="financing.html">Financing</a></li>
+      <li><a href="consignment.html">Consignment</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#apparel">Apparel</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <a href="#contact" class="header-cta">Showroom Open</a>
+  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="inventory.html">Inventory</a>
+  <a href="financing.html">Financing</a>
+  <a href="consignment.html">Consignment</a>
+  <a href="#about">About</a>
+  <a href="#apparel">Apparel</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:17802361276" class="mob-cta">780 236 1276</a>
+</nav>
+
+<!-- ---- Hero ---- -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-backdrop">UNFAZED</div>
+
+  <div class="hero-top">
+    <span class="eyebrow">01 — Premium Powersports · Edmonton, AB</span>
+    <div class="hero-meta">
+      <div><strong>Proudly Canadian</strong> — Edmonton, AB</div>
+      <div>Showroom open daily · 9–7</div>
+    </div>
+  </div>
+
+  <div class="hero-main">
+    <div>
+      <h1 class="hero-headline">
+        <span class="line"><span>Stay</span></span>
+        <span class="line"><span>unfazed.</span></span>
+      </h1>
+      <p class="hero-sub">Premium motorcycles and powersports. Hand-picked inventory, transparent pricing, cash or finance — and a room where nobody rushes you out the door.</p>
+      <div class="hero-ctas">
+        <a href="inventory.html" class="btn btn-primary">View Inventory <span class="arrow">↗</span></a>
+        <a href="financing.html" class="btn btn-outline">Apply for Financing <span class="arrow">↗</span></a>
+      </div>
+    </div>
+
+    <div class="hero-feature">
+      <div class="feature-img">
+        <!-- Filled dynamically by home-inventory.js if photos available, otherwise shows coming-soon -->
+        <img src="assets/coming-soon.png" alt="Inventory photos coming soon" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <span class="feature-tag live">In Stock</span>
+      <div class="feature-info">
+        <div class="year" id="heroFeatYear">Premium Powersports · Edmonton</div>
+        <h3 id="heroFeatName">Shop the Floor</h3>
+        <div class="feature-stats">
+          <div class="s"><b id="heroFeatHP">—</b><span>HP</span></div>
+          <div class="s"><b id="heroFeatCC">—</b><span>CC</span></div>
+          <div class="s"><b id="heroFeatPrice">—</b><span>CAD</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="hero-ticker">
+      <div><b id="heroStockCount">—</b> units in stock</div>
+      <div><b>0</b> pressure tactics</div>
+      <div><b>4.9★</b> 300+ reviews</div>
+    </div>
+    <div class="scroll-cue"><span>Scroll</span><div class="dot"></div></div>
+  </div>
+</section>
+
+<!-- ---- Marquee ---- -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Ducati<span class="star">✦</span>Yamaha<span class="star">✦</span>BMW Motorrad<span class="star">✦</span>KTM<span class="star">✦</span>Triumph<span class="star">✦</span>Aprilia<span class="star">✦</span>Honda<span class="star">✦</span>Kawasaki<span class="star">✦</span>Harley-Davidson<span class="star">✦</span>Can-Am<span class="star">✦</span></span>
+    <span>Ducati<span class="star">✦</span>Yamaha<span class="star">✦</span>BMW Motorrad<span class="star">✦</span>KTM<span class="star">✦</span>Triumph<span class="star">✦</span>Aprilia<span class="star">✦</span>Honda<span class="star">✦</span>Kawasaki<span class="star">✦</span>Harley-Davidson<span class="star">✦</span>Can-Am<span class="star">✦</span></span>
+  </div>
+</div>
+
+<!-- ---- Featured Inventory ---- -->
+<section id="inventory">
+  <div class="section-head reveal">
+    <div class="left">
+      <span class="eyebrow">02 — The Floor</span>
+      <h2 class="section-title">Featured<br><em>inventory.</em></h2>
+    </div>
+    <p class="right">Rotating selection of premium sport, adventure, touring, and off-road machines. Every unit is inspected, documented, and ready to ride off the floor.</p>
+  </div>
+
+  <!-- Live cards injected by home-inventory.js -->
+  <div class="inv-grid" id="invCards">
+    <div class="loading-state"><div class="loading-spinner"></div><span>Loading inventory…</span></div>
+  </div>
+
+  <div class="inv-foot reveal">
+    <span class="count" id="invCount">Browse all vehicles →</span>
+    <a href="inventory.html" class="btn btn-outline">Browse Full Inventory <span class="arrow">↗</span></a>
+  </div>
+</section>
+
+<!-- ---- No Pressure ---- -->
+<section class="no-pressure">
+  <div class="no-pressure-inner">
+    <div class="np-quote">"</div>
+    <div class="np-text reveal">
+      <h2>No pressure.<br>No games. <em>ever.</em></h2>
+      <p>We don't do commission-chasing salesfloors. We don't do mystery fees. We don't do "what payment are you trying to hit." We show you the bike, the history, and the number. If it's right, it's right. If it's not, there's the door — and we'll still wave when you leave.</p>
+      <p>That's it. That's the pitch.</p>
+      <span class="np-sign">The Unfazed Promise</span>
+    </div>
+  </div>
+</section>
+
+<!-- ---- Financing Teaser ---- -->
+<section id="financing" class="financing">
+  <div class="section-head reveal">
+    <div class="left">
+      <span class="eyebrow">03 — Financing</span>
+      <h2 class="section-title">Cash, credit, or<br><em>whatever works.</em></h2>
+    </div>
+    <p class="right">We work with every major Canadian powersports lender, plus bank partners for prime borrowers. Pre-approval takes under five minutes and won't touch your credit score.</p>
+  </div>
+
+  <div class="fin-grid">
+    <div class="fin-card reveal">
+      <span class="num">01</span>
+      <h4>Prime Financing</h4>
+      <p>Bank-rate financing for qualified buyers. Terms from 24 to 180 months, zero down available. Rates starting at 7.99% OAC.</p>
+      <a href="financing.html" class="arrow-link">Learn More <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0l-5-4m5 4l-5 4" stroke="currentColor" stroke-width="1.2"/></svg></a>
+    </div>
+    <div class="fin-card reveal">
+      <span class="num">02</span>
+      <h4>Credit Rebuilding</h4>
+      <p>Bruised credit, slow credit, or new credit — we have lender programs built for the rebuild. Transparent rates, no surprises, no upsells.</p>
+      <a href="financing.html" class="arrow-link">Learn More <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0l-5-4m5 4l-5 4" stroke="currentColor" stroke-width="1.2"/></svg></a>
+    </div>
+    <div class="fin-card reveal">
+      <span class="num">03</span>
+      <h4>Cash & Trade</h4>
+      <p>Paying cash? You skip the fees. Got a bike to trade? We appraise it honestly, not aggressively. Fair on both sides of the deal.</p>
+      <a href="financing.html" class="arrow-link">Learn More <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0l-5-4m5 4l-5 4" stroke="currentColor" stroke-width="1.2"/></svg></a>
+    </div>
+  </div>
+
+  <div class="fin-apply reveal">
+    <div class="fin-apply-left">
+      <span class="eyebrow" style="margin-bottom:20px;display:inline-flex">Ready When You Are</span>
+      <h3 style="margin-top:14px">Five minutes.<br><em>That's it.</em></h3>
+      <p>Pre-approval takes under five minutes and won't touch your credit score. We'll match you with the right lender, lock in your rate, and have the bike ready on the floor when you walk in.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:6px">
+        <a href="financing.html" class="btn btn-primary">Apply for Financing <span class="arrow">↗</span></a>
+        <a href="tel:17802361276" class="btn btn-outline">Call 780 236 1276 <span class="arrow">↗</span></a>
+      </div>
+    </div>
+    <div class="fin-apply-right">
+      <div class="fin-stat"><b>5<span>MIN</span></b><p>Pre-approval turnaround</p></div>
+      <div class="fin-stat"><b>0<span>$</span></b><p>Down payment required (OAC)</p></div>
+      <div class="fin-stat"><b>180<span>MO</span></b><p>Maximum term available</p></div>
+      <div class="fin-stat"><b>7.99<span>%</span></b><p>Prime rate starts at (OAC)</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ---- About ---- -->
+<section id="about" class="about">
+  <div class="about-grid">
+    <div class="about-mark reveal">
+      <img src="assets/logo-damaged.png" alt="Unfazed Motors logo">
+      <div class="orbit">
+        <svg viewBox="0 0 400 400">
+          <defs><path id="circlePath" d="M 200,200 m -160,0 a 160,160 0 1,1 320,0 a 160,160 0 1,1 -320,0" fill="none"/></defs>
+          <text fill="#666" font-family="JetBrains Mono" font-size="11" letter-spacing="4">
+            <textPath href="#circlePath">STAY UNFAZED · BUILT WITHOUT FEAR · STAY UNFAZED · BUILT WITHOUT FEAR · </textPath>
+          </text>
+        </svg>
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <span class="eyebrow">04 — The Story</span>
+      <h2 style="margin-top:20px">Built for those who <em>move without fear.</em></h2>
+      <p>Unfazed Motors started with a simple idea: the best dealerships feel like walking into a friend's garage, not a showroom under fluorescent lights. We buy the machines we'd ride ourselves, we price them like the person across the counter is somebody we actually know, and we leave the pressure at the door.</p>
+      <p>Confidence isn't a sales tactic. It's what happens when the inventory is honest, the financing is straight, and nobody is working you for a number. That's the house we built. That's the brand we wear.</p>
+      <div class="about-values">
+        <div class="value"><div class="v-num">i.</div><h5>Hand-Picked</h5><p>Every unit inspected, road-tested, and documented before it touches the floor.</p></div>
+        <div class="value"><div class="v-num">ii.</div><h5>Transparent</h5><p>One price. One doc fee. No mystery math, no phantom "market adjustments."</p></div>
+        <div class="value"><div class="v-num">iii.</div><h5>Quiet Room</h5><p>Take your time. Ask hard questions. Walk out if it's not right. It's cool.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---- Apparel ---- -->
+<section id="apparel" class="apparel">
+  <div class="apparel-grid">
+    <div class="apparel-txt reveal">
+      <span class="tag">Dropping Soon</span>
+      <h2>Wear the<br><em>attitude.</em></h2>
+      <p>The Unfazed apparel line launches in summer 2026 — riding tees, heavyweight hoodies, moto caps, and a limited-run capsule with the skull-helmet mark screen-printed on garment-dyed cotton. Made for riders. Priced for riders.</p>
+      <a href="#" class="btn btn-outline">Join the Waitlist <span class="arrow">↗</span></a>
+    </div>
+    <div class="apparel-visual reveal">
+      <div class="ap-tile big">
+        <div><span class="ap-label">SS26 · Drop 01</span></div>
+        <div class="ap-visual"><img src="assets/logo-damaged.png" alt=""></div>
+        <div><span class="ap-label">Heavy Tee</span><div class="ap-name" style="margin-top:4px">Skull Mark / Black</div></div>
+        <span class="soon">Preview</span>
+      </div>
+      <div class="ap-tile"><div class="ap-text">Stay.</div><span class="soon">Preview</span></div>
+      <div class="ap-tile"><div class="ap-text"><em>unfazed</em></div><span class="soon">Preview</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ---- Contact CTA ---- -->
+<section id="contact" class="contact-cta">
+  <span class="eyebrow" style="justify-content:center">05 — Visit the Floor</span>
+  <h2 style="margin-top:24px">Come ride<br>something <em>new.</em></h2>
+  <p>The showroom is open seven days a week. Bring your questions. Bring your skepticism. We'll put the keys in your hand and let the machine do the talking.</p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <a href="tel:17802361276" class="btn btn-primary">Call 780 236 1276 <span class="arrow">↗</span></a>
+    <a href="https://maps.google.com/?q=9620+51+Avenue+NW+Edmonton+AB" target="_blank" rel="noopener" class="btn btn-outline">Get Directions <span class="arrow">↗</span></a>
+  </div>
+</section>
+
+<!-- ---- Footer ---- -->
+<footer>
+  <div class="footer-top">
+    <div class="foot-brand">
+      <a href="index.html" class="brand">
+        <div class="brand-mark"><img src="assets/logo-damaged.png" alt=""></div>
+        <div class="brand-name">UNFAZED<small>MOTORS · EST. 2026</small></div>
+      </a>
+      <p>Unfazed Motors — Built for those who move without fear. Premium powersports, straight-talk sales, hand-picked inventory. Licensed motor dealer, Edmonton, Alberta.</p>
+    </div>
+    <div class="foot-col">
+      <h6>Shop</h6>
+      <ul>
+        <li><a href="inventory.html">Inventory</a></li>
+        <li><a href="financing.html">Financing</a></li>
+      <li><a href="consignment.html">Consignment</a></li>
+        <li><a href="consignment.html">Trade-In / Consignment</a></li>
+        <li><a href="#apparel">Apparel</a></li>
+        <li><a href="#">Parts & Gear</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h6>Company</h6>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h6>Visit</h6>
+      <ul>
+        <li style="color:#ccc">9620 51 Avenue NW<br>Edmonton, AB</li>
+        <li><a href="tel:17802361276">780 236 1276</a></li>
+        <li><a href="mailto:hello@unfazedmotors.ca">hello@unfazedmotors.ca</a></li>
+        <li style="color:#ccc">Mon–Sun · 9:00–19:00</li>
+        <li style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;margin-top:6px">🍁 Proudly Canadian</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-mega"><h1>UNFAZED</h1><span class="stamp">Stay unfazed.</span></div>
+  <div class="foot-bottom">
+    <span>© 2026 Unfazed Motors · In partnership with Guru Auto &amp; Powersports (AMVIC Licensed Dealer)</span>
+    <span><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Cookies</a></span>
+  </div>
+</footer>
+
+</div><!-- .home-page -->
+
+<script src="js/intro.js"></script>
+<script src="js/main.js"></script>
+<script src="js/home-inventory.js"></script>
+<div id="unfazedChatRoot"></div>
+<script src="js/chatbot.js"></script>
+<script>
+// Update hero feature card from first loaded inventory item
+(function() {
+  // home-inventory.js dispatches a custom event when records are loaded
+  document.addEventListener('homeinvloaded', function(e) {
+    const rec = e.detail && e.detail[0];
+    if (!rec) return;
+    const f = rec.fields || {};
+    const el = (id) => document.getElementById(id);
+    if (el('heroFeatYear')) el('heroFeatYear').textContent = `${f['Year'] || ''} · ${f['Make'] || ''} · ${f['Mileage (km)'] ? Number(f['Mileage (km)']).toLocaleString('en-CA') + ' km' : 'Featured Unit'}`;
+    if (el('heroFeatName')) el('heroFeatName').textContent = `${f['Make'] || ''} ${f['Model'] || ''}`;
+    if (el('heroFeatHP')) el('heroFeatHP').textContent = f['Horsepower'] ? Number(f['Horsepower']).toLocaleString('en-CA') : '—';
+    if (el('heroFeatCC')) el('heroFeatCC').textContent = f['Engine (cc)'] ? Number(f['Engine (cc)']).toLocaleString('en-CA') : '—';
+    if (el('heroFeatPrice')) el('heroFeatPrice').textContent = f['Price (CAD)'] ? '$' + Math.round(Number(f['Price (CAD)'])).toLocaleString('en-CA') : '—';
+    if (el('heroStockCount')) {
+      // Will be set by home-inventory.js
+    }
+    // Update hero feature image if photos available
+    const photos = f['Photos'];
+    if (photos && photos[0]) {
+      const featImg = document.querySelector('.hero-feature .feature-img');
+      if (featImg) {
+        featImg.innerHTML = `<img src="${photos[0].url}" alt="${f['Make']} ${f['Model']}" style="width:100%;height:100%;object-fit:cover">`;
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>

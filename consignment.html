@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consignment & Trade-In · Get Your Appraisal — Unfazed Motors</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/logo-damaged.png">
+<link rel="apple-touch-icon" href="assets/logo-damaged.png">
+<meta name="description" content="Sell your motorcycle, ATV, or powersports vehicle on consignment at Unfazed Motors in Edmonton. Free appraisal — submit your details and photos online.">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/financing.css">
+<link rel="stylesheet" href="css/consignment.css">
+<link rel="stylesheet" href="css/chatbot.css">
+</head>
+<body class="financing-page">
+
+<!-- ========== HEADER ========== -->
+<header id="hdr" class="stuck">
+  <a href="index.html" class="brand">
+    <div class="brand-mark"><img src="assets/logo-damaged.png" alt="Unfazed Motors"></div>
+    <div class="brand-name">UNFAZED<small>MOTORS · EST. 2026</small></div>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="inventory.html">Inventory</a></li>
+      <li><a href="financing.html">Financing</a></li>
+      <li><a href="consignment.html" class="active">Consignment</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <a href="tel:17802361276" class="header-cta">Showroom Open</a>
+  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="inventory.html">Inventory</a>
+  <a href="financing.html">Financing</a>
+  <a href="consignment.html">Consignment</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="tel:17802361276" class="mob-cta">780 236 1276</a>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="fin-hero">
+  <div class="fin-hero-bg"></div>
+  <div class="fin-hero-inner">
+    <span class="eyebrow">Sell Smart</span>
+    <h1>Trade. <em>Consign.</em> Cash out.</h1>
+    <p class="fin-hero-sub">Let us move your bike on the floor. We handle the marketing, the leads, and the test rides — you walk away with more than a private sale would ever give you.</p>
+    <div class="fin-hero-stats">
+      <div class="fin-stat"><b>0<span>%</span></b><p>Listing fee upfront</p></div>
+      <div class="fin-stat"><b>24<span>HR</span></b><p>Appraisal turnaround</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== HOW IT WORKS ========== -->
+<div class="fin-why">
+  <div class="fin-why-head">
+    <span class="eyebrow">How it works</span>
+    <h2>Three steps. <em class="serif">No surprises.</em></h2>
+    <p>Submit your details, get an honest appraisal in 24 hours, and we'll handle the rest. You set your asking price — we work to get it.</p>
+  </div>
+  <div class="fin-why-grid">
+
+    <div class="fin-why-card reveal">
+      <div class="wc-num">01</div>
+      <h3>Submit details</h3>
+      <p>Fill out the form below — year, make, model, kms, condition, photos. The more accurate, the faster we can quote you.</p>
+      <ul>
+        <li>Takes 5 minutes</li>
+        <li>Photos required for accurate quote</li>
+        <li>No commitment to list</li>
+      </ul>
+    </div>
+
+    <div class="fin-why-card reveal">
+      <div class="wc-num">02</div>
+      <h3>Free appraisal</h3>
+      <p>We come back within one business day with a market-based valuation. Want a final inspection? We'll book a time.</p>
+      <ul>
+        <li>Honest, market-anchored numbers</li>
+        <li>No obligation if it doesn't work</li>
+        <li>Outright cash purchase also available</li>
+      </ul>
+    </div>
+
+    <div class="fin-why-card reveal">
+      <div class="wc-num">03</div>
+      <h3>List & sell</h3>
+      <p>Drop the bike with us. We professionally photograph it, list it, handle test rides, and pay you out when it sells.</p>
+      <ul>
+        <li>Stored indoors, secure facility</li>
+        <li>Listed on our site & socials</li>
+        <li>Funds released within 48hr of sale</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ========== APPRAISAL FORM ========== -->
+<section class="fin-form-section" id="apply">
+  <div class="section-head">
+    <div class="left">
+      <span class="eyebrow">Get your appraisal</span>
+      <h2 class="section-title">Tell us <em>about your ride.</em></h2>
+    </div>
+    <div class="right">
+      <p>Complete this form and we'll come back with a number within one business day. Upload at least three clear photos so we can give you an accurate appraisal.</p>
+    </div>
+  </div>
+
+  <div id="conFormWrap">
+    <form
+      id="conForm"
+      action="https://formspree.io/f/xgorpqny"
+      method="POST"
+      enctype="multipart/form-data"
+      class="fin-form"
+      novalidate
+    >
+      <input type="hidden" name="_subject" value="🏍️ New Consignment Appraisal Request">
+      <input type="hidden" name="_replyto" id="replyto" value="">
+      <input type="hidden" name="form_type" value="Consignment / Trade-In Appraisal">
+
+      <!-- ===== CONTACT ===== -->
+      <div class="fs-block">
+        <div class="fs-section-head">
+          <span class="fs-num">01</span>
+          <h2 class="fs-section-title">Your contact info</h2>
+          <span class="fs-section-rule"></span>
+        </div>
+        <div class="fs-grid">
+          <div class="fs-field">
+            <label class="fs-label" for="firstName">First name <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="firstName" name="firstName" required autocomplete="given-name">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="lastName">Last name <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="lastName" name="lastName" required autocomplete="family-name">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="phone">Phone <i class="req">*</i></label>
+            <input class="fs-input" type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="780 000 0000">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="emailInput">Email <i class="req">*</i></label>
+            <input class="fs-input" type="email" id="emailInput" name="email" required autocomplete="email">
+          </div>
+          <div class="fs-field fs-full">
+            <label class="fs-label" for="city">City <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="city" name="city" required placeholder="Edmonton, AB">
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== VEHICLE BASICS ===== -->
+      <div class="fs-block">
+        <div class="fs-section-head">
+          <span class="fs-num">02</span>
+          <h2 class="fs-section-title">Your vehicle</h2>
+          <span class="fs-section-rule"></span>
+        </div>
+        <div class="fs-grid">
+          <div class="fs-field">
+            <label class="fs-label" for="vehicleType">Vehicle type <i class="req">*</i></label>
+            <select class="fs-input" id="vehicleType" name="vehicleType" required>
+              <option value="">Select…</option>
+              <option>Motorcycle</option>
+              <option>Scooter</option>
+              <option>ATV</option>
+              <option>UTV / Side-by-Side</option>
+              <option>Snowmobile</option>
+              <option>Dirt Bike</option>
+              <option>Car / Truck / SUV</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="year">Year <i class="req">*</i></label>
+            <input class="fs-input" type="number" id="year" name="year" required min="1950" max="2030" placeholder="2022">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="make">Make <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="make" name="make" required placeholder="Yamaha">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="model">Model <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="model" name="model" required placeholder="MT-09">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="trim">Trim / Variant</label>
+            <input class="fs-input" type="text" id="trim" name="trim" placeholder="SP, GT, Sport, etc.">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="color">Color <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="color" name="color" required placeholder="Matte Black">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="vin">VIN <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="vin" name="vin" required maxlength="17" placeholder="17-character VIN">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="kms">Mileage / KMs <i class="req">*</i></label>
+            <input class="fs-input" type="number" id="kms" name="kms" required min="0" placeholder="12400">
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== OWNERSHIP & HISTORY ===== -->
+      <div class="fs-block">
+        <div class="fs-section-head">
+          <span class="fs-num">03</span>
+          <h2 class="fs-section-title">Ownership & history</h2>
+          <span class="fs-section-rule"></span>
+        </div>
+        <div class="fs-grid">
+          <div class="fs-field">
+            <label class="fs-label" for="ownership">Title status <i class="req">*</i></label>
+            <select class="fs-input" id="ownership" name="ownership" required>
+              <option value="">Select…</option>
+              <option>Clean title — owned outright</option>
+              <option>Lien — still financing</option>
+              <option>Lease buyout</option>
+              <option>Salvage / rebuilt</option>
+              <option>Other / Unsure</option>
+            </select>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="ownedFor">How long have you owned it? <i class="req">*</i></label>
+            <select class="fs-input" id="ownedFor" name="ownedFor" required>
+              <option value="">Select…</option>
+              <option>Under 6 months</option>
+              <option>6–12 months</option>
+              <option>1–2 years</option>
+              <option>2–5 years</option>
+              <option>5+ years</option>
+            </select>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="accident">Accident history <i class="req">*</i></label>
+            <select class="fs-input" id="accident" name="accident" required>
+              <option value="">Select…</option>
+              <option>No accidents — clean record</option>
+              <option>Minor — dropped / cosmetic</option>
+              <option>Moderate — repaired collision</option>
+              <option>Major — frame/major component damage</option>
+              <option>Unsure</option>
+            </select>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="warranty">Warranty remaining <i class="req">*</i></label>
+            <select class="fs-input" id="warranty" name="warranty" required>
+              <option value="">Select…</option>
+              <option>Full factory warranty active</option>
+              <option>Extended warranty active</option>
+              <option>Powertrain only</option>
+              <option>Expired / no warranty</option>
+              <option>Unsure</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== CONDITION ===== -->
+      <div class="fs-block">
+        <div class="fs-section-head">
+          <span class="fs-num">04</span>
+          <h2 class="fs-section-title">Condition</h2>
+          <span class="fs-section-rule"></span>
+        </div>
+        <div class="fs-grid">
+          <div class="fs-field fs-full">
+            <label class="fs-label" for="condition">Overall condition <i class="req">*</i></label>
+            <select class="fs-input" id="condition" name="condition" required>
+              <option value="">Select…</option>
+              <option>Showroom / like-new</option>
+              <option>Excellent — minor wear</option>
+              <option>Good — typical use</option>
+              <option>Fair — visible wear, runs well</option>
+              <option>Needs work — mechanical issues</option>
+            </select>
+          </div>
+          <div class="fs-field fs-full">
+            <label class="fs-label" for="modifications">Modifications / aftermarket parts</label>
+            <textarea class="fs-input" id="modifications" name="modifications" rows="2" placeholder="Exhaust, tuner, suspension, lighting, etc. — list anything not stock."></textarea>
+          </div>
+          <div class="fs-field fs-full">
+            <label class="fs-label" for="needsFixing">Anything that needs fixing or attention?</label>
+            <textarea class="fs-input" id="needsFixing" name="needsFixing" rows="2" placeholder="Worn tires, brake service due, slight oil leak, dent on tank, etc. Be honest — it speeds up the process."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PHOTOS ===== -->
+      <div class="fs-block">
+        <div class="fs-section-head">
+          <span class="fs-num">05</span>
+          <h2 class="fs-section-title">Photos</h2>
+          <span class="fs-section-rule"></span>
+        </div>
+        <p class="fs-block-help">Upload at least 3 photos (max 8). Best results: front, both sides, rear, dash/odometer reading, engine/exhaust, any damage. Total max ~25MB.</p>
+        <div class="fs-field fs-full">
+          <label class="fs-label" for="photos">Photos <i class="req">*</i></label>
+          <label class="fs-file-drop" for="photos">
+            <input type="file" id="photos" name="photos" accept="image/*" multiple required>
+            <span class="fs-file-icon">📷</span>
+            <span class="fs-file-text"><b>Click to upload photos</b><br><span>or drag & drop here</span></span>
+            <span class="fs-file-list" id="photoList"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- ===== ASKING PRICE ===== -->
+      <div class="fs-block">
+        <div class="fs-section-head">
+          <span class="fs-num">06</span>
+          <h2 class="fs-section-title">Your asking price</h2>
+          <span class="fs-section-rule"></span>
+        </div>
+        <div class="fs-grid">
+          <div class="fs-field">
+            <label class="fs-label" for="askingPrice">Asking price (CAD) <i class="req">*</i></label>
+            <input class="fs-input" type="number" id="askingPrice" name="askingPrice" required min="0" placeholder="15000">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="dealType">Preferred deal <i class="req">*</i></label>
+            <select class="fs-input" id="dealType" name="dealType" required>
+              <option value="">Select…</option>
+              <option>Consignment (you sell it for me)</option>
+              <option>Outright cash purchase</option>
+              <option>Trade toward another bike on your floor</option>
+              <option>Open to either — recommend best option</option>
+            </select>
+          </div>
+          <div class="fs-field fs-full">
+            <label class="fs-label" for="comments">Anything else we should know?</label>
+            <textarea class="fs-input" id="comments" name="comments" rows="3" placeholder="Service history, reason for selling, timeline, preferred contact time, etc."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== CONSENT ===== -->
+      <div class="fs-consent">
+        <label class="fs-consent-row">
+          <input type="checkbox" id="accuracyConfirm" required>
+          <span>I confirm the information provided is accurate to the best of my knowledge.</span>
+        </label>
+        <label class="fs-consent-row">
+          <input type="checkbox" id="contactConsent" required>
+          <span>I consent to being contacted by Unfazed Motors regarding this appraisal.</span>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary fs-submit">
+        Submit appraisal request <span class="arrow">↗</span>
+      </button>
+
+      <p class="fs-fineprint">Submissions are reviewed within one business day. We don't share your information with anyone.</p>
+    </form>
+
+    <div id="conSuccess">
+      <div class="fin-success-block">
+        <div class="fin-success-icon">✓</div>
+        <h2>Got it. <em class="serif">We'll be in touch.</em></h2>
+        <p>We've received your appraisal request and will review it within one business day. A team member will reach out with a valuation and next steps.</p>
+        <div class="fin-success-btns">
+          <a href="tel:17802361276" class="btn btn-primary">Call 780 236 1276 <span class="arrow">↗</span></a>
+          <a href="inventory.html" class="btn btn-outline">Browse Inventory <span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div id="conError">
+      <div class="fin-error-block">
+        <p>Something went wrong submitting your appraisal. Please call us directly at <a href="tel:17802361276">780 236 1276</a> or email <a href="mailto:hello@unfazedmotors.ca">hello@unfazedmotors.ca</a> and we'll get you sorted.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-top">
+    <div class="foot-brand">
+      <a href="index.html" class="brand">
+        <div class="brand-mark"><img src="assets/logo-damaged.png" alt=""></div>
+        <div class="brand-name">UNFAZED<small>MOTORS · EST. 2026</small></div>
+      </a>
+      <p>Unfazed Motors — Built for those who move without fear. Premium powersports, straight-talk sales, hand-picked inventory.</p>
+      <p style="font-size:12px;color:#555;line-height:1.6;margin-top:8px">Inventory held and sold by Guru Auto &amp; Powersports, AMVIC licensed dealer. Unfazed Motors is a registered trade name operating under that licence. All financing subject to credit approval. Rates and terms are examples only and may vary.</p>
+    </div>
+    <div class="foot-col">
+      <h6>Shop</h6>
+      <ul>
+        <li><a href="inventory.html">Inventory</a></li>
+        <li><a href="financing.html">Financing</a></li>
+        <li><a href="consignment.html">Consignment</a></li>
+        <li><a href="#">Parts &amp; Gear</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h6>Company</h6>
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h6>Visit</h6>
+      <ul>
+        <li style="color:#ccc">9620 51 Avenue NW<br>Edmonton, AB</li>
+        <li><a href="tel:17802361276">780 236 1276</a></li>
+        <li><a href="mailto:hello@unfazedmotors.ca">hello@unfazedmotors.ca</a></li>
+        <li style="color:#ccc">Mon–Sun · 9:00–19:00</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-mega"><h1>UNFAZED</h1><span class="stamp">Stay unfazed.</span></div>
+  <div class="foot-bottom">
+    <span>© 2026 Unfazed Motors · In partnership with Guru Auto &amp; Powersports (AMVIC Licensed Dealer)</span>
+    <span><a href="#">Privacy</a> · <a href="#">Terms</a></span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/consignment.js"></script>
+<div id="unfazedChatRoot"></div>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

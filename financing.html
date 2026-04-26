@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financing · Apply in 5 Minutes — Unfazed Motors</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/logo-damaged.png">
+<link rel="apple-touch-icon" href="assets/logo-damaged.png">
+<meta name="description" content="Apply for motorcycle and powersports financing in Edmonton. All credit situations welcome. Terms up to 180 months, rates as low as 7.99% OAC. Pre-approval in 5 minutes.">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/financing.css">
+<link rel="stylesheet" href="css/chatbot.css">
+</head>
+<body class="financing-page">
+
+<!-- ========== HEADER ========== -->
+<header id="hdr" class="stuck">
+  <a href="index.html" class="brand">
+    <div class="brand-mark"><img src="assets/logo-damaged.png" alt="Unfazed Motors"></div>
+    <div class="brand-name">UNFAZED<small>MOTORS · EST. 2026</small></div>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="inventory.html">Inventory</a></li>
+      <li><a href="financing.html" class="active">Financing</a></li>
+      <li><a href="consignment.html">Consignment</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#apparel">Apparel</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <a href="tel:17802361276" class="header-cta">Showroom Open</a>
+  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="inventory.html">Inventory</a>
+  <a href="financing.html">Financing</a>
+  <a href="consignment.html">Consignment</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="tel:17802361276" class="mob-cta">780 236 1276</a>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="fin-hero">
+  <div class="fin-hero-inner">
+    <span class="eyebrow">03 — FINANCING · ALL CREDIT WELCOME</span>
+    <h1>Straight financing.<br><em class="serif">no surprises.</em></h1>
+    <p>We work with every major Canadian powersports lender plus bank and credit-union partners, so you get the best terms your situation allows. Terms up to 180 months. Rates as low as 7.99% OAC. Pre-approval takes under five minutes.</p>
+    <div class="fin-trust">
+      <span class="fin-trust-item">ALL CREDIT WELCOME</span>
+      <span class="fin-trust-sep">✦</span>
+      <span class="fin-trust-item">5-MINUTE APPROVAL</span>
+      <span class="fin-trust-sep">✦</span>
+      <span class="fin-trust-item">ZERO-DOWN OPTIONS (OAC)</span>
+      <span class="fin-trust-sep">✦</span>
+      <span class="fin-trust-item">🍁 PROUDLY CANADIAN</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== WHY CARDS ========== -->
+<div class="fin-why">
+  <span class="eyebrow fin-why-eyebrow">Why Unfazed Financing</span>
+  <div class="fin-why-grid">
+    <div class="fin-why-card">
+      <span class="wc-num">01</span>
+      <h3>Good Credit</h3>
+      <p>Prime rates for qualified buyers. Terms from 24 to 180 months, zero down available. Rates starting at 7.99% OAC.</p>
+    </div>
+    <div class="fin-why-card">
+      <span class="wc-num">02</span>
+      <h3>Bruised Credit</h3>
+      <p>Slow credit, new credit, previous bankruptcy, divorce — we have lender programs built for the rebuild. Transparent rates, no mystery fees.</p>
+    </div>
+    <div class="fin-why-card">
+      <span class="wc-num">03</span>
+      <h3>First-Time Buyer</h3>
+      <p>Building credit from zero? We partner with lenders who help first-time buyers establish history while riding a great bike. Co-signer options available.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ========== FORM + SIDEBAR ========== -->
+<div class="fin-body">
+
+  <!-- ---- MAIN COLUMN ---- -->
+  <div class="fin-main">
+
+    <!-- Success state (hidden until submission) -->
+    <div id="finSuccess">
+      <div class="fin-success-block">
+        <div class="fin-success-icon">✓</div>
+        <h2>Application <em class="serif">received.</em></h2>
+        <p>Thanks. We've got it from here. You'll hear from us within one business hour during showroom hours.</p>
+        <div class="fin-success-btns">
+          <a href="tel:17802361276" class="btn btn-primary">Call 780 236 1276 <span class="arrow">↗</span></a>
+          <a href="inventory.html" class="btn btn-outline">Browse Inventory <span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error state (shown above form on failure, form stays) -->
+    <div id="finError">
+      <div class="fin-error-block">
+        <p>Something went wrong sending your application. Please call us directly at <a href="tel:17802361276">780 236 1276</a> or email <a href="mailto:hello@unfazedmotors.ca">hello@unfazedmotors.ca</a> and we'll get you sorted.</p>
+      </div>
+    </div>
+
+    <!-- THE FORM -->
+    <div id="finFormWrap">
+      <form
+        id="finForm"
+        action="https://formspree.io/f/xgorpqny"
+        method="POST"
+        novalidate
+      >
+        <!-- Formspree helpers -->
+        <input type="hidden" name="_subject" value="Financing Application — Unfazed Motors">
+        <input type="hidden" name="_replyto" id="replyto">
+
+        <!-- ============ SECTION 01 — PERSONAL ============ -->
+        <div class="fs-section-head">
+          <span class="fs-num">01</span>
+          <h2 class="fs-section-title">Personal</h2>
+          <div class="fs-section-rule"></div>
+        </div>
+        <div class="fs-grid">
+          <div class="fs-field">
+            <label class="fs-label" for="firstName">First Name <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="firstName" name="firstName" required autocomplete="given-name">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="middleName">Middle Name</label>
+            <input class="fs-input" type="text" id="middleName" name="middleName" autocomplete="additional-name">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="lastName">Last Name <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="lastName" name="lastName" required autocomplete="family-name">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="dob">Date of Birth <i class="req">*</i></label>
+            <input class="fs-input" type="date" id="dob" name="dateOfBirth" required>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="dlNum">Driver's License Number <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="dlNum" name="driverLicense" required autocomplete="off">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="sin">SIN <span style="color:var(--mute);font-weight:400;text-transform:none;letter-spacing:0.05em">(optional — speeds up credit check)</span></label>
+            <input class="fs-input" type="text" id="sin" name="sin" inputmode="numeric" maxlength="11" placeholder="000-000-000" autocomplete="off">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="dlProv">Province of License</label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="dlProv" name="licenseProvince">
+                <option value="Alberta" selected>Alberta</option>
+                <option value="British Columbia">British Columbia</option>
+                <option value="Manitoba">Manitoba</option>
+                <option value="New Brunswick">New Brunswick</option>
+                <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                <option value="Northwest Territories">Northwest Territories</option>
+                <option value="Nova Scotia">Nova Scotia</option>
+                <option value="Nunavut">Nunavut</option>
+                <option value="Ontario">Ontario</option>
+                <option value="Prince Edward Island">Prince Edward Island</option>
+                <option value="Quebec">Quebec</option>
+                <option value="Saskatchewan">Saskatchewan</option>
+                <option value="Yukon">Yukon</option>
+              </select>
+            </div>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="maritalStatus">Marital Status</label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="maritalStatus" name="maritalStatus">
+                <option value="" disabled selected>Select…</option>
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="Common-law">Common-law</option>
+                <option value="Divorced">Divorced</option>
+                <option value="Separated">Separated</option>
+                <option value="Widowed">Widowed</option>
+              </select>
+            </div>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="dependents">Number of Dependents</label>
+            <input class="fs-input" type="number" id="dependents" name="dependents" min="0" placeholder="0">
+          </div>
+        </div>
+
+        <!-- ============ SECTION 02 — CONTACT ============ -->
+        <div class="fs-section-head">
+          <span class="fs-num">02</span>
+          <h2 class="fs-section-title">Contact</h2>
+          <div class="fs-section-rule"></div>
+        </div>
+        <div class="fs-grid">
+          <div class="fs-field">
+            <label class="fs-label" for="phone">Phone Number <i class="req">*</i></label>
+            <input class="fs-input" type="tel" id="phone" name="phone" required placeholder="780-000-0000" autocomplete="tel">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="altPhone">Alternate Phone</label>
+            <input class="fs-input" type="tel" id="altPhone" name="altPhone" placeholder="780-000-0000">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="emailInput">Email Address <i class="req">*</i></label>
+            <input class="fs-input" type="email" id="emailInput" name="email" required autocomplete="email">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="bestTime">Best Time to Reach</label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="bestTime" name="bestTime">
+                <option value="" disabled selected>Select…</option>
+                <option value="Morning">Morning</option>
+                <option value="Afternoon">Afternoon</option>
+                <option value="Evening">Evening</option>
+                <option value="Anytime">Anytime</option>
+              </select>
+            </div>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="contactMethod">Preferred Contact Method</label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="contactMethod" name="contactMethod">
+                <option value="" disabled selected>Select…</option>
+                <option value="Phone">Phone</option>
+                <option value="Email">Email</option>
+                <option value="Text">Text</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ SECTION 03 — ADDRESS ============ -->
+        <div class="fs-section-head">
+          <span class="fs-num">03</span>
+          <h2 class="fs-section-title">Address</h2>
+          <div class="fs-section-rule"></div>
+        </div>
+        <p class="fs-sub-label">Current Address</p>
+        <div class="fs-grid">
+          <div class="fs-field full">
+            <label class="fs-label" for="street">Street <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="street" name="street" required autocomplete="street-address">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="apt">Apt / Unit</label>
+            <input class="fs-input" type="text" id="apt" name="apt">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="city">City <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="city" name="city" required autocomplete="address-level2">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="addrProv">Province <i class="req">*</i></label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="addrProv" name="province" required>
+                <option value="Alberta" selected>Alberta</option>
+                <option value="British Columbia">British Columbia</option>
+                <option value="Manitoba">Manitoba</option>
+                <option value="New Brunswick">New Brunswick</option>
+                <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                <option value="Northwest Territories">Northwest Territories</option>
+                <option value="Nova Scotia">Nova Scotia</option>
+                <option value="Nunavut">Nunavut</option>
+                <option value="Ontario">Ontario</option>
+                <option value="Prince Edward Island">Prince Edward Island</option>
+                <option value="Quebec">Quebec</option>
+                <option value="Saskatchewan">Saskatchewan</option>
+                <option value="Yukon">Yukon</option>
+              </select>
+            </div>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="postal">Postal Code <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="postal" name="postalCode" required placeholder="T6E 5A6" autocomplete="postal-code">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="timeAtAddr">How Long at This Address? <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="timeAtAddr" name="timeAtAddress" required placeholder="e.g. 3 years 6 months">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="housing">Housing <i class="req">*</i></label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="housing" name="housing" required>
+                <option value="" disabled selected>Select…</option>
+                <option value="Own">Own</option>
+                <option value="Rent">Rent</option>
+                <option value="Live with Family">Live with Family</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="rentMortgage">Monthly Rent or Mortgage Payment $</label>
+            <input class="fs-input" type="number" id="rentMortgage" name="monthlyHousingPayment" min="0" placeholder="CAD">
+          </div>
+        </div>
+
+        <!-- ============ SECTION 04 — EMPLOYMENT ============ -->
+        <div class="fs-section-head">
+          <span class="fs-num">04</span>
+          <h2 class="fs-section-title">Employment</h2>
+          <div class="fs-section-rule"></div>
+        </div>
+        <p class="fs-sub-label">Current Employment</p>
+        <div class="fs-grid">
+          <div class="fs-field">
+            <label class="fs-label" for="employer">Employer Name <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="employer" name="employerName" required>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="jobTitle">Job Title <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="jobTitle" name="jobTitle" required>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="employerPhone">Employer Phone <i class="req">*</i></label>
+            <input class="fs-input" type="tel" id="employerPhone" name="employerPhone" required>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="employmentType">Employment Type <i class="req">*</i></label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="employmentType" name="employmentType" required>
+                <option value="" disabled selected>Select…</option>
+                <option value="Full-time">Full-time</option>
+                <option value="Part-time">Part-time</option>
+                <option value="Self-employed">Self-employed</option>
+                <option value="Contract">Contract</option>
+                <option value="Retired">Retired</option>
+                <option value="Student">Student</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="fs-field full">
+            <label class="fs-label" for="employerAddress">Employer Address</label>
+            <input class="fs-input" type="text" id="employerAddress" name="employerAddress">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="timeAtJob">How Long at This Job? <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="timeAtJob" name="timeAtJob" required placeholder="e.g. 2 years">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="grossIncome">Gross Monthly Income $ <i class="req">*</i></label>
+            <input class="fs-input" type="number" id="grossIncome" name="grossMonthlyIncome" required min="0" placeholder="Before tax, CAD">
+          </div>
+        </div>
+        <p class="fs-note">If you've been at your current job less than 2 years, please add previous employer details in the Comments section below.</p>
+
+        <p class="fs-sub-label" style="margin-top:28px">Additional Income <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.18em;color:var(--mute)">(Optional)</span></p>
+        <div class="fs-grid">
+          <div class="fs-field">
+            <label class="fs-label" for="addlIncomeSource">Source</label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="addlIncomeSource" name="additionalIncomeSource">
+                <option value="" disabled selected>Select…</option>
+                <option value="Second Job">Second Job</option>
+                <option value="Spouse Income">Spouse Income</option>
+                <option value="Pension">Pension</option>
+                <option value="Disability">Disability</option>
+                <option value="Child Support">Child Support</option>
+                <option value="Rental">Rental</option>
+                <option value="Investment">Investment</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="addlIncomeAmt">Monthly Amount $</label>
+            <input class="fs-input" type="number" id="addlIncomeAmt" name="additionalIncomeAmount" min="0">
+          </div>
+        </div>
+
+        <!-- ============ SECTION 05 — VEHICLE OF INTEREST ============ -->
+        <div class="fs-section-head">
+          <span class="fs-num">05</span>
+          <h2 class="fs-section-title">Vehicle of Interest</h2>
+          <div class="fs-section-rule"></div>
+        </div>
+        <div class="fs-grid">
+          <div class="fs-field full">
+            <label class="fs-label" for="specificVehicle">Specific Vehicle</label>
+            <input class="fs-input" type="text" id="specificVehicle" name="specificVehicle" placeholder="e.g. 2023 Ducati Panigale V4, or 'still shopping'">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="preferredCat">Preferred Category</label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="preferredCat" name="preferredCategory">
+                <option value="" disabled selected>Select…</option>
+                <option value="Sportbike">Sportbike</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Naked">Naked</option>
+                <option value="Cruiser">Cruiser</option>
+                <option value="Touring">Touring</option>
+                <option value="ATV">ATV</option>
+                <option value="UTV">UTV</option>
+                <option value="Off-Road">Off-Road</option>
+                <option value="Scooter">Scooter</option>
+                <option value="Snowmobile">Snowmobile</option>
+                <option value="Open to suggestions">Open to suggestions</option>
+              </select>
+            </div>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="budgetRange">Budget Range</label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="budgetRange" name="budgetRange">
+                <option value="" disabled selected>Select…</option>
+                <option value="Under $10K">Under $10K</option>
+                <option value="$10K–$15K">$10K–$15K</option>
+                <option value="$15K–$20K">$15K–$20K</option>
+                <option value="$20K–$30K">$20K–$30K</option>
+                <option value="$30K–$50K">$30K–$50K</option>
+                <option value="$50K+">$50K+</option>
+              </select>
+            </div>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="downPayment">Cash Down Payment $</label>
+            <input class="fs-input" type="number" id="downPayment" name="downPayment" min="0">
+          </div>
+          <div class="fs-field full">
+            <label class="fs-label" for="tradeIn">Trade-In?</label>
+            <input class="fs-input" type="text" id="tradeIn" name="tradeIn" placeholder="Year / Make / Model / Mileage / Amount Owed (if any)">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="desiredTerm">Desired Term</label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="desiredTerm" name="desiredTerm">
+                <option value="" disabled selected>Select…</option>
+                <option value="24 months">24 months</option>
+                <option value="36 months">36 months</option>
+                <option value="48 months">48 months</option>
+                <option value="60 months">60 months</option>
+                <option value="72 months">72 months</option>
+                <option value="84 months">84 months</option>
+                <option value="96 months">96 months</option>
+                <option value="120 months">120 months</option>
+                <option value="144 months">144 months</option>
+                <option value="180 months">180 months</option>
+                <option value="Not sure">Not sure</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ SECTION 06 — CREDIT HISTORY ============ -->
+        <div class="fs-section-head">
+          <span class="fs-num">06</span>
+          <h2 class="fs-section-title">Credit History</h2>
+          <div class="fs-section-rule"></div>
+        </div>
+        <p class="fs-note">This section helps us match you with the right lender faster. Everything you share stays private. We pull credit only with your authorization.</p>
+        <div class="fs-grid">
+          <div class="fs-field">
+            <label class="fs-label" for="creditRating">Credit Self-Reported <i class="req">*</i></label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="creditRating" name="creditSelfReported" required>
+                <option value="" disabled selected>Select…</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Good">Good</option>
+                <option value="Fair">Fair</option>
+                <option value="Poor">Poor</option>
+                <option value="No Credit History">No Credit History</option>
+                <option value="Not Sure">Not Sure</option>
+              </select>
+            </div>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="bankruptcy">Bankruptcy in Last 7 Years?</label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="bankruptcy" name="bankruptcy">
+                <option value="No" selected>No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="consumerProposal">Consumer Proposal in Last 5 Years?</label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="consumerProposal" name="consumerProposal">
+                <option value="No" selected>No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="repossessions">Repossessions in Last 3 Years?</label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="repossessions" name="repossessions">
+                <option value="No" selected>No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="currentAutoLoan">Current Auto Loan?</label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="currentAutoLoan" name="currentAutoLoan">
+                <option value="No" selected>No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ SECTION 07 — COMMENTS ============ -->
+        <div class="fs-section-head">
+          <span class="fs-num">07</span>
+          <h2 class="fs-section-title">Comments</h2>
+          <div class="fs-section-rule"></div>
+        </div>
+        <div class="fs-field">
+          <label class="fs-label" for="comments">Anything Else We Should Know?</label>
+          <textarea class="fs-textarea" id="comments" name="comments" rows="5" placeholder="Specific bike you've been eyeing, timing, questions, previous employment if you've been at current job less than 2 years — tell us here."></textarea>
+        </div>
+
+        <!-- ============ SECTION 08 — AUTHORIZATION ============ -->
+        <div class="fs-section-head">
+          <span class="fs-num">08</span>
+          <h2 class="fs-section-title">Authorization</h2>
+          <div class="fs-section-rule"></div>
+        </div>
+
+        <div class="fs-disclosure">
+          <p>By submitting this application, I certify that the information above is accurate and complete. I authorize Unfazed Motors and its licensed dealer partner Guru Auto &amp; Powersports to obtain personal, employment, and credit information from credit bureaus and other sources as needed to process this application. I understand that lenders may perform a soft or hard credit inquiry depending on their process, and we will tell you which type of check each lender uses before proceeding. A hard credit inquiry will only occur after I review and agree to specific loan terms in writing.</p>
+        </div>
+
+        <div class="fs-checks">
+          <label class="fs-check">
+            <input type="checkbox" name="agreeTerms" id="agreeTerms" required>
+            <span class="fs-check-box"></span>
+            <span>I agree to the terms above.<i class="req"> *</i></span>
+          </label>
+          <label class="fs-check">
+            <input type="checkbox" name="marketingOptIn" id="marketingOptIn">
+            <span class="fs-check-box"></span>
+            <span>I'd like to receive occasional updates about new inventory and financing specials.</span>
+          </label>
+        </div>
+
+        <div class="fs-grid">
+          <div class="fs-field full">
+            <label class="fs-label" for="eSignature">Electronic Signature <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="eSignature" name="electronicSignature" required placeholder="Type your full legal name">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="dateSigned">Today's Date <i class="req">*</i></label>
+            <input class="fs-input" type="date" id="dateSigned" name="dateSigned" required>
+          </div>
+        </div>
+
+        <!-- ============ SUBMIT ============ -->
+        <div class="fin-submit-wrap">
+          <button type="submit" class="btn btn-primary btn-lg" id="finSubmitBtn">
+            Submit Application <span class="arrow">↗</span>
+          </button>
+          <p class="fin-submit-note">A member of the Unfazed team will reach out within one business hour during showroom hours (9–7, seven days a week).</p>
+        </div>
+
+      </form>
+    </div><!-- /#finFormWrap -->
+  </div><!-- /.fin-main -->
+
+  <!-- ---- SIDEBAR ---- -->
+  <aside class="fin-sidebar-col">
+    <div class="fin-sidebar">
+      <p class="sb-header">While You Wait</p>
+      <a href="tel:17802361276" class="sb-phone">780 236 1276</a>
+
+      <div class="sb-row">
+        <span class="sb-row-label">Address</span>
+        <div class="sb-row-val">9620 51 Avenue NW<br>Edmonton, AB T6E 5A6</div>
+      </div>
+      <div class="sb-row">
+        <span class="sb-row-label">Email</span>
+        <div class="sb-row-val"><a href="mailto:hello@unfazedmotors.ca">hello@unfazedmotors.ca</a></div>
+      </div>
+      <div class="sb-row">
+        <span class="sb-row-label">Hours</span>
+        <div class="sb-row-val">Mon–Sun · 9:00 AM – 7:00 PM</div>
+      </div>
+
+      <div class="sb-divider"></div>
+      <a href="inventory.html" class="btn btn-outline sb-inv-btn">Browse Inventory <span class="arrow">↗</span></a>
+
+      <div class="sb-stats">
+        <div class="sb-stat"><b>5<span>MIN</span></b><p>Pre-approval turnaround</p></div>
+        <div class="sb-stat"><b>0<span>$</span></b><p>Down required (OAC)</p></div>
+        <div class="sb-stat"><b>180<span>MO</span></b><p>Max term available</p></div>
+        <div class="sb-stat"><b>7.99<span>%</span></b><p>Rates starting at (OAC)</p></div>
+      </div>
+    </div>
+  </aside>
+
+</div><!-- /.fin-body -->
+
+<!-- ========== FAQ ========== -->
+<section class="fin-faq">
+  <div class="section-head">
+    <div class="left">
+      <span class="eyebrow">FAQ · WHAT PEOPLE ASK</span>
+      <h2 class="section-title" style="margin-top:16px">Good questions.<br><em class="serif" style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;text-transform:lowercase">Straight answers.</em></h2>
+    </div>
+  </div>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>Will applying affect my credit score? <span class="faq-icon">+</span></summary>
+      <p class="faq-body">Lenders may perform a soft or hard credit inquiry depending on their process. We'll always be transparent about which type of check each lender runs before you proceed. Most of our lender partners use soft inquiries for initial pre-approval, and only move to a hard inquiry after you review and agree to specific loan terms.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can I get approved with bad credit? <span class="faq-icon">+</span></summary>
+      <p class="faq-body">Yes. We specialize in helping riders with every kind of credit situation — bruised credit, slow credit, first-time buyers, post-bankruptcy, consumer proposals. We work with lenders specifically built for these situations.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Do I need a down payment? <span class="faq-icon">+</span></summary>
+      <p class="faq-body">Not necessarily. Many of our customers qualify for zero down with approved credit. Down payments help lower your monthly payment and can unlock better rates — we'll walk you through the options when we connect.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How long does approval take? <span class="faq-icon">+</span></summary>
+      <p class="faq-body">Pre-approval usually takes under five minutes. Full approval with a specific bike chosen typically completes within one business hour during showroom hours.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can I trade in my current bike? <span class="faq-icon">+</span></summary>
+      <p class="faq-body">Absolutely. Tell us about it in the application. We appraise trade-ins honestly, not aggressively — whether your bike is paid off or still financed.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What's the longest term available? <span class="faq-icon">+</span></summary>
+      <p class="faq-body">We can go up to 180 months (15 years) on approved credit for qualifying units. Longer terms reduce your monthly payment but increase total interest paid — we'll walk you through the math when you visit.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-top">
+    <div class="foot-brand">
+      <a href="index.html" class="brand">
+        <div class="brand-mark"><img src="assets/logo-damaged.png" alt=""></div>
+        <div class="brand-name">UNFAZED<small>MOTORS · EST. 2026</small></div>
+      </a>
+      <p>Unfazed Motors — Built for those who move without fear. Premium powersports, straight-talk sales, hand-picked inventory.</p>
+      <p style="font-size:12px;color:#555;line-height:1.6;margin-top:8px">Inventory held and sold by Guru Auto &amp; Powersports, AMVIC licensed dealer. Unfazed Motors is a registered trade name operating under that licence. All financing subject to credit approval. Rates and terms are examples only and may vary.</p>
+    </div>
+    <div class="foot-col">
+      <h6>Shop</h6>
+      <ul>
+        <li><a href="inventory.html">Inventory</a></li>
+        <li><a href="financing.html">Financing</a></li>
+      <li><a href="consignment.html">Consignment</a></li>
+        <li><a href="consignment.html">Trade-In / Consignment</a></li>
+        <li><a href="#">Parts &amp; Gear</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h6>Company</h6>
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h6>Visit</h6>
+      <ul>
+        <li style="color:#ccc">9620 51 Avenue NW<br>Edmonton, AB</li>
+        <li><a href="tel:17802361276">780 236 1276</a></li>
+        <li><a href="mailto:hello@unfazedmotors.ca">hello@unfazedmotors.ca</a></li>
+        <li style="color:#ccc">Mon–Sun · 9:00–19:00</li>
+        <li style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;margin-top:6px">🍁 Proudly Canadian</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-mega"><h1>UNFAZED</h1><span class="stamp">Stay unfazed.</span></div>
+  <div class="foot-bottom">
+    <span>© 2026 Unfazed Motors · In partnership with Guru Auto &amp; Powersports (AMVIC Licensed Dealer)</span>
+    <span><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Cookies</a></span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/financing.js"></script>
+<div id="unfazedChatRoot"></div>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

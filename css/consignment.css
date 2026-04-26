@@ -1,0 +1,112 @@
+/* ================================================
+   UNFAZED MOTORS — Consignment Page
+   Reuses financing.css for hero, why-cards, form blocks.
+   This file adds: photo dropzone, consent rows,
+   bullet list inside cards, success/error visibility.
+   ================================================ */
+
+/* ---- Success/Error: hidden until JS toggles .show ---- */
+#conSuccess, #conError { display: none; }
+#conSuccess.show, #conError.show { display: block; }
+
+/* ---- Bullet list inside how-it-works cards ---- */
+.fin-why-card ul {
+  list-style: none;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.fin-why-card ul li {
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.05em;
+  color: #b5b5b5;
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.5;
+}
+.fin-why-card ul li::before {
+  content: "→";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--accent);
+}
+
+/* ---- Help text under block titles ---- */
+.fs-block-help {
+  font-size: 13px; color: var(--mute); line-height: 1.65;
+  margin: -6px 0 18px; max-width: 600px;
+}
+
+/* ---- Hero subtitle: tighter line-height for cleaner read ---- */
+.fin-hero-sub {
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+/* ---- Photo upload dropzone ---- */
+.fs-file-drop {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 14px;
+  background: var(--bg);
+  border: 2px dashed var(--line-hi);
+  border-radius: 12px;
+  padding: 40px 24px;
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+  text-align: center;
+  position: relative;
+}
+.fs-file-drop:hover {
+  border-color: var(--accent);
+  background: rgba(255, 45, 45, 0.03);
+}
+.fs-file-drop input[type="file"] {
+  position: absolute; inset: 0;
+  opacity: 0; cursor: pointer;
+}
+.fs-file-icon {
+  font-size: 28px; line-height: 1;
+}
+.fs-file-text {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--mute); line-height: 1.7;
+}
+.fs-file-text b { color: var(--ink); font-weight: 500; }
+.fs-file-list {
+  display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;
+  margin-top: 8px;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 0.1em; color: var(--accent);
+}
+.fs-file-list:empty { display: none; }
+.fs-file-list span {
+  background: rgba(255, 45, 45, 0.08);
+  border: 1px solid rgba(255, 45, 45, 0.2);
+  border-radius: 4px;
+  padding: 4px 10px;
+}
+
+/* ---- Consent block ---- */
+.fs-consent {
+  margin: 32px 0 24px;
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.fs-consent-row {
+  display: flex; align-items: flex-start; gap: 12px;
+  cursor: pointer;
+  font-size: 13px; line-height: 1.6; color: #c5c5c5;
+}
+.fs-consent-row input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 16px; height: 16px;
+  flex-shrink: 0; margin-top: 2px;
+  cursor: pointer;
+}
+.fs-consent-row:hover { color: var(--ink); }

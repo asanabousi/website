@@ -1,0 +1,246 @@
+/* ================================================
+   UNFAZED MOTORS — Vehicle Detail Page Styles
+   ================================================ */
+
+.vehicle-page { padding-top: 80px; }
+
+/* ---- Breadcrumb ---- */
+.breadcrumb {
+  padding: 20px 40px; border-bottom: 1px solid var(--line);
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--mute);
+  display: flex; align-items: center; gap: 10px;
+}
+.breadcrumb a { color: var(--mute); transition: color .2s; }
+.breadcrumb a:hover { color: var(--ink); }
+.breadcrumb .sep { color: var(--line-hi); }
+.breadcrumb .current { color: var(--ink); }
+
+/* ---- Vehicle layout ---- */
+.vehicle-main {
+  display: grid; grid-template-columns: 1fr 420px;
+  gap: 60px; padding: 48px 40px 80px; max-width: 1400px; margin: 0 auto;
+}
+
+/* ---- Gallery ---- */
+.gallery { position: relative; }
+.gallery-main {
+  aspect-ratio: 4/3; background: radial-gradient(circle at 40% 40%, #1e1e1e 0%, #080808 75%);
+  border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
+  position: relative; margin-bottom: 12px;
+}
+.gallery-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery-main .no-photo {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 16px;
+}
+.gallery-main .no-photo svg { width: 80%; max-width: 480px; }
+.gallery-thumbs { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; }
+.gallery-thumbs::-webkit-scrollbar { height: 3px; }
+.gallery-thumbs::-webkit-scrollbar-thumb { background: var(--line-hi); border-radius: 2px; }
+.thumb {
+  width: 88px; height: 66px; flex-shrink: 0;
+  border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
+  cursor: pointer; transition: border-color .2s;
+}
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+.thumb:hover, .thumb.active { border-color: var(--accent); }
+
+.vehicle-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; margin-bottom: 24px; }
+.veh-badge {
+  font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  padding: 6px 10px; border-radius: 4px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  color: #ccc;
+}
+.veh-badge.accent { color: var(--accent); border-color: rgba(255,45,45,0.3); background: rgba(255,45,45,0.08); }
+.veh-badge.green { color: #3adf6a; border-color: rgba(58,223,106,0.3); background: rgba(58,223,106,0.08); }
+
+/* ---- Vehicle description ---- */
+.vehicle-description {
+  padding: 28px; background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  margin-top: 24px;
+}
+.vehicle-description h3 {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--mute); margin-bottom: 14px;
+}
+.vehicle-description p { font-size: 15px; line-height: 1.75; color: #b5b5b5; }
+
+/* ---- Highlights ---- */
+.vehicle-highlights {
+  display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px;
+}
+.highlight-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.18em;
+  text-transform: uppercase; padding: 6px 12px;
+  background: rgba(255,45,45,0.08); border: 1px solid rgba(255,45,45,0.2);
+  border-radius: 4px; color: #ff8888;
+}
+
+/* ---- Sidebar ---- */
+.vehicle-sidebar { position: sticky; top: 88px; align-self: start; }
+.vehicle-title-block { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+.vehicle-eyebrow {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--mute); margin-bottom: 10px; display: block;
+}
+.vehicle-title { font-family: 'Bebas Neue', sans-serif; font-size: 52px; line-height: 0.88; letter-spacing: 0.01em; margin-bottom: 8px; }
+.vehicle-stock { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mute); }
+
+/* ---- Price/Finance tabs ---- */
+.price-tabs { margin-bottom: 24px; }
+.tab-bar { display: flex; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+.tab-btn {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; padding: 12px 20px; color: var(--mute);
+  cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px;
+  transition: all .2s; background: none; border-top: none; border-left: none; border-right: none;
+}
+.tab-btn:hover { color: var(--ink); }
+.tab-btn.active { color: var(--ink); border-bottom-color: var(--accent); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+.cash-price {
+  font-family: 'Bebas Neue', sans-serif; font-size: 56px; line-height: 0.9;
+  letter-spacing: 0.01em; margin-bottom: 6px;
+}
+.cash-price .price-unit {
+  font-family: 'Bebas Neue', sans-serif; font-size: 28px;
+  color: var(--mute); margin-left: 8px; letter-spacing: 0.04em;
+}
+.cash-price small {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--mute); display: block; margin-top: 8px; line-height: 1.6;
+}
+}
+.finance-estimate {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--mute); line-height: 1.8;
+}
+.finance-estimate b { color: var(--ink); font-weight: 500; }
+.finance-estimate .est-rate { font-size: 30px; font-family: 'Bebas Neue', sans-serif; color: var(--ink); letter-spacing: 0.02em; }
+
+/* ---- Spec grid ---- */
+.spec-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; background: var(--line);
+  border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  margin-bottom: 24px;
+}
+.spec-item { background: var(--card); padding: 16px 18px; }
+.spec-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--mute); margin-bottom: 4px; display: block;
+}
+.spec-value { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.02em; font-weight: 400; line-height: 1; }
+
+/* ---- CTA buttons ---- */
+.vehicle-ctas { display: flex; flex-direction: column; gap: 10px; }
+.vehicle-ctas .btn { justify-content: center; }
+.vehicle-ctas .btn-secondary-link {
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--mute); padding: 10px;
+  transition: color .2s; display: block;
+}
+.vehicle-ctas .btn-secondary-link:hover { color: var(--ink); }
+
+/* ---- Availability modal ---- */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.85); backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px; opacity: 0; pointer-events: none;
+  transition: opacity .3s;
+}
+.modal-overlay.open { opacity: 1; pointer-events: auto; }
+.modal {
+  background: #111; border: 1px solid var(--line-hi); border-radius: 20px;
+  padding: 40px; max-width: 520px; width: 100%;
+  transform: translateY(20px); transition: transform .3s;
+  max-height: 90vh; overflow-y: auto;
+}
+.modal-overlay.open .modal { transform: translateY(0); }
+.modal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; }
+.modal-title { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 0.01em; line-height: 0.9; }
+.modal-subtitle { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mute); margin-top: 8px; }
+.modal-close {
+  width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line);
+  display: grid; place-items: center; cursor: pointer;
+  font-size: 18px; color: var(--mute); transition: all .2s; flex-shrink: 0; background: none;
+}
+.modal-close:hover { border-color: var(--ink); color: var(--ink); }
+
+/* ---- Form ---- */
+.lead-form { display: flex; flex-direction: column; gap: 14px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field label {
+  font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--mute);
+}
+.form-field input, .form-field select, .form-field textarea {
+  background: var(--bg); border: 1px solid var(--line);
+  border-radius: 8px; padding: 12px 14px;
+  font-family: 'Inter', sans-serif; font-size: 14px; color: var(--ink);
+  outline: none; transition: border-color .2s;
+  -webkit-appearance: none;
+}
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+  border-color: var(--line-hi);
+}
+.form-field input::placeholder, .form-field textarea::placeholder { color: var(--mute); }
+.form-field textarea { resize: vertical; min-height: 80px; }
+.form-field select { color: var(--ink); }
+.form-field select option { background: #111; }
+.form-submit-btn {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  padding: 18px; background: var(--ink); color: var(--bg); border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  cursor: pointer; border: none; transition: all .25s; margin-top: 8px;
+}
+.form-submit-btn:hover { background: var(--accent); color: var(--ink); }
+.form-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.form-note {
+  font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--mute); text-align: center; line-height: 1.6;
+}
+.form-success {
+  text-align: center; padding: 32px 0;
+}
+.form-success h3 { font-family: 'Bebas Neue', sans-serif; font-size: 42px; margin-bottom: 12px; }
+.form-success p { color: #b5b5b5; font-size: 15px; line-height: 1.6; }
+
+/* ---- More vehicles ---- */
+.more-vehicles { padding: 80px 40px; border-top: 1px solid var(--line); }
+.more-vehicles h2 { font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 0.01em; margin-bottom: 32px; }
+
+/* ---- Vehicle loading state ---- */
+.vehicle-loading {
+  min-height: 60vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 20px;
+  padding: 80px 40px;
+}
+.vehicle-loading .loading-spinner { width: 40px; height: 40px; }
+.vehicle-not-found {
+  min-height: 60vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 20px;
+  padding: 80px 40px; text-align: center;
+}
+.vehicle-not-found h2 { font-family: 'Bebas Neue', sans-serif; font-size: 72px; color: #333; }
+.vehicle-not-found p { color: var(--mute); max-width: 400px; line-height: 1.6; }
+
+/* ---- Responsive ---- */
+@media (max-width: 1100px) {
+  .vehicle-main { grid-template-columns: 1fr; gap: 40px; padding: 32px 24px 60px; }
+  .vehicle-sidebar { position: static; }
+  .breadcrumb { padding: 16px 24px; }
+  .more-vehicles { padding: 60px 24px; }
+}
+@media (max-width: 600px) {
+  .spec-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .modal { padding: 24px; }
+  .cash-price { font-size: 48px; }
+}
