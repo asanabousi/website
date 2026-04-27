@@ -195,9 +195,8 @@
   height: 100%;
   object-fit: contain;
   object-position: center center;
-  mix-blend-mode: screen;
-  filter: grayscale(1) contrast(1.2) invert(1) drop-shadow(0 10px 16px rgba(0,0,0,0.45));
-  opacity: 0.82;
+  filter: drop-shadow(0 10px 16px rgba(0,0,0,0.45));
+  opacity: 0.9;
   transition: opacity .2s, filter .2s, transform .2s;
 }
 .body-type-card .body-name {
@@ -214,7 +213,7 @@
 .body-type-card:hover .category-logo-img,
 .body-type-card:has(input:checked) .category-logo-img {
   opacity: 1;
-  filter: grayscale(1) contrast(1.35) invert(1) drop-shadow(0 0 12px rgba(255,45,45,0.22));
+  filter: drop-shadow(0 0 12px rgba(255,45,45,0.22));
 }
 .sidebar-status { display: flex; flex-direction: column; gap: 8px; }
 .sidebar-status label { display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 14px; color: #ccc; transition: color .2s; }
