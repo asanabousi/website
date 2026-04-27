@@ -42,39 +42,29 @@ const API_BASE = 'https://unfazed-chatbot.unfazedmotors.workers.dev';
   }
   function bodyIcon(type) {
     const key = String(type || '').toLowerCase();
-    function logo(code, mark) {
-      return `<svg class="category-logo" viewBox="0 0 96 60" aria-hidden="true">
-        <rect class="badge-bg" x="6" y="5" width="84" height="50" rx="14"/>
-        <path class="badge-ring" d="M18 45V21l30-10 30 10v24L48 53z"/>
-        ${mark}
-        <text x="48" y="48" text-anchor="middle">${code}</text>
-      </svg>`;
+    const base = 'assets/category-icons/';
+    function png(file) {
+      return `<img class="category-logo-img" src="${base}${file}" alt="" loading="lazy">`;
     }
-    const sportbike = logo('SPORT', `<path class="badge-line" d="M29 31c6-12 18-17 34-15M34 34h21l11-15M26 36h42M67 19l9-6M24 23h12M20 29h11"/><path class="badge-accent" d="M62 25l12 2-14 9z"/>`);
-    const naked = logo('STREET', `<path class="badge-line" d="M24 35h48M35 34l10-15h18l9 15M39 24h25M62 19l9-6h7M24 35l-7 6M72 35l7 6"/><path class="badge-accent" d="M41 22h18l-5 8H36z"/>`);
-    const cruiser = logo('CRUISER', `<path class="badge-line" d="M31 18l17 18 17-18M38 18l10 11 10-11M31 36h34M36 25h-9M69 25h-9"/><path class="badge-accent" d="M45 15h6v21h-6z"/>`);
-    const adventure = logo('ADV', `<path class="badge-line" d="M20 36l15-20 11 14 8-10 22 16M30 36h38M48 14v24M42 22l6-8 6 8"/><path class="badge-accent" d="M48 28l5 8H43z"/>`);
-    const atv = logo('ATV', `<circle class="badge-line" cx="28" cy="34" r="6"/><circle class="badge-line" cx="68" cy="34" r="6"/><path class="badge-line" d="M28 34h12l8-15 8 15h12M37 25h22M43 19h10M20 28h12M64 28h12"/><path class="badge-accent" d="M44 25h8l-4 8z"/>`);
-    const golf = logo('GOLF', `<path class="badge-line" d="M23 35h43l8-11M30 35V22h27l9 13M38 22v13M73 18v22M73 18h10l-3 5h-7"/><circle class="badge-line" cx="30" cy="38" r="4"/><circle class="badge-line" cx="62" cy="38" r="4"/><path class="badge-accent" d="M47 18h10l9 17H47z"/>`);
-    const trailer = logo('TRAILER', `<path class="badge-line" d="M22 20h39v18H22zM61 32h11l7 6M31 20v18M45 20v18M64 38h8"/><circle class="badge-line" cx="57" cy="39" r="5"/><path class="badge-accent" d="M76 36l7 2-7 2z"/>`);
-    const rv = logo('RV', `<path class="badge-line" d="M20 19h48v20H20zM68 28h8l6 11H68M30 19v20M44 19v20M22 41h56"/><circle class="badge-line" cx="32" cy="40" r="4"/><circle class="badge-line" cx="65" cy="40" r="4"/><path class="badge-accent" d="M22 19h20v20H22z"/>`);
-    const boat = logo('BOAT', `<path class="badge-line" d="M22 31h52L64 41H32zM38 31V16h16l12 15M29 43c5-3 10 3 15 0s10 3 15 0 10 3 15 0"/><path class="badge-accent" d="M42 16h12v15H42z"/>`);
-    const snow = logo('SNOW', `<path class="badge-line" d="M48 15v24M36 21l24 12M60 21L36 33M25 38h46M31 38l-7 5M65 38l7 5"/><circle class="badge-accent" cx="48" cy="27" r="4"/>`);
-    const equipment = logo('EQUIP', `<path class="badge-line" d="M26 38h30l15-17h9M30 31h20V17H34zM50 24h14l8 10M21 39h58"/><circle class="badge-line" cx="31" cy="39" r="5"/><circle class="badge-line" cx="55" cy="39" r="5"/><path class="badge-accent" d="M72 28h10l-5 10z"/>`);
-    const electric = logo('EV', `<path class="badge-line" d="M34 36h24l9-13h10M37 27h11M64 22l6-8h9M28 37h48"/><path class="badge-accent" d="M49 14L38 32h11l-5 14 16-23H49z"/>`);
-    const motorcycle = logo('MOTO', `<path class="badge-line" d="M27 35h42M35 33l10-14h18l9 14M42 20h15M27 35l-8 6M69 35l8 6"/><circle class="badge-accent" cx="28" cy="35" r="4"/><circle class="badge-accent" cx="68" cy="35" r="4"/>`);
+    const sportbike = png('sportbike_icon_only.png');
+    const naked = png('naked_icon_only.png');
+    const motorcycle = sportbike;
     if (key.includes('naked') || key.includes('street')) return naked;
-    if (key.includes('sport') || key.includes('three')) return sportbike;
-    if (key.includes('cruiser') || key.includes('touring')) return cruiser;
-    if (key.includes('adventure') || key.includes('off-road')) return adventure;
-    if (key.includes('golf')) return golf;
-    if (key.includes('atv') || key.includes('utv')) return atv;
-    if (key.includes('rv')) return rv;
-    if (key.includes('trailer')) return trailer;
-    if (key.includes('boat') || key.includes('water')) return boat;
-    if (key.includes('snow')) return snow;
-    if (key.includes('equipment')) return equipment;
-    if (key.includes('electric')) return electric;
+    if (key.includes('three')) return png('threewheeler_icon_only.png');
+    if (key.includes('sport')) return sportbike;
+    if (key.includes('touring') && key.includes('cruiser')) return png('touring-cruiser_icon_only.png');
+    if (key.includes('touring')) return png('touring_icon_only.png');
+    if (key.includes('cruiser')) return png('cruiser_icon_only.png');
+    if (key.includes('off-road') || key.includes('off road') || key.includes('dirt')) return png('off-road_icon_only.png');
+    if (key.includes('adventure')) return png('adventure_icon_only.png');
+    if (key.includes('golf')) return png('golfcart_icon_only.png');
+    if (key.includes('atv') || key.includes('utv')) return png('atv-utv_icon_only.png');
+    if (key.includes('rv') || key.includes('trailer')) return png('trailer_icon_only.png');
+    if (key.includes('watercraft') || key.includes('jet') || key.includes('sea-doo') || key.includes('seadoo')) return png('watercraft-1_icon_only.png');
+    if (key.includes('boat') || key.includes('water')) return png('boat_icon_only.png');
+    if (key.includes('snow')) return png('off-road_icon_only.png');
+    if (key.includes('equipment')) return png('equipment_icon_only.png');
+    if (key.includes('electric')) return png('electric_icon_only.png');
     return motorcycle;
   }
   function badgeClass(badge) {

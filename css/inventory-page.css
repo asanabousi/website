@@ -186,40 +186,16 @@
   border: 1px solid var(--line-hi); border-radius: 50%;
 }
 .body-type-card .body-icon {
-  width: 88px; height: 58px; display: grid; place-items: center;
-  color: var(--mute);
+  width: 92px; height: 64px; display: grid; place-items: center;
 }
-.body-type-card .body-icon svg {
-  width: 88px; height: 58px;
-  fill: none; stroke: currentColor; stroke-width: 1.9;
-  stroke-linecap: round; stroke-linejoin: round;
-}
-.body-type-card .category-logo {
-  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.35));
-}
-.body-type-card .category-logo .badge-bg {
-  fill: #151515;
-  stroke: rgba(255,255,255,0.08);
-}
-.body-type-card .category-logo .badge-ring,
-.body-type-card .category-logo .badge-line {
-  fill: none;
-  stroke: currentColor;
-}
-.body-type-card .category-logo .badge-ring {
-  opacity: 0.32;
-}
-.body-type-card .category-logo .badge-accent {
-  fill: var(--accent);
-  stroke: none;
-}
-.body-type-card .category-logo text {
-  fill: currentColor;
-  stroke: none;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 6px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+.body-type-card .category-logo-img {
+  width: 92px;
+  height: 64px;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: grayscale(1) contrast(1.2) invert(1) drop-shadow(0 10px 16px rgba(0,0,0,0.45));
+  opacity: 0.82;
+  transition: opacity .2s, filter .2s, transform .2s;
 }
 .body-type-card .body-name {
   text-align: center; color: #ddd; font-size: 14px; line-height: 1.2;
@@ -232,7 +208,11 @@
   border-color: var(--accent); background: rgba(255,45,45,0.08);
 }
 .body-type-card:has(input:checked) .body-dot { background: var(--accent); border-color: var(--accent); }
-.body-type-card:has(input:checked) .body-icon { color: var(--ink); }
+.body-type-card:hover .category-logo-img,
+.body-type-card:has(input:checked) .category-logo-img {
+  opacity: 1;
+  filter: grayscale(1) contrast(1.35) invert(1) drop-shadow(0 0 12px rgba(255,45,45,0.22));
+}
 .sidebar-status { display: flex; flex-direction: column; gap: 8px; }
 .sidebar-status label { display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 14px; color: #ccc; transition: color .2s; }
 .sidebar-status label:hover { color: var(--ink); }
