@@ -7,16 +7,32 @@
   --mute-hi: #c5c5c5;
 }
 
+body.financing-page {
+  --bg: #f7f7f4;
+  --ink: #101010;
+  --mute: #5f5f5a;
+  --line: #dedbd2;
+  --line-hi: #bbb6aa;
+  --card: #ffffff;
+  --cream: #171717;
+  --bg-2: #ffffff;
+  --mute-hi: #333333;
+  background: #f7f7f4;
+  color: #101010;
+  font-size: 18px;
+  font-weight: 400;
+}
+
 /* ---- Force header stuck on this page ---- */
 /* financing.js also enforces this; belt-and-suspenders */
 body.financing-page #hdr {
-  background: #0a0a0a;
+  background: #f7f7f4;
   border-bottom: 1px solid var(--line);
   padding: 12px 40px;
 }
 @supports (backdrop-filter: blur(1px)) {
   body.financing-page #hdr {
-    background: rgba(10,10,10,0.88);
+    background: rgba(247,247,244,0.92);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
   }
@@ -31,7 +47,7 @@ body.financing-page #hdr {
 .fin-hero {
   padding: 130px 40px 80px;
   position: relative; overflow: hidden;
-  background: linear-gradient(180deg, #0c0c0c 0%, #050505 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f7f7f4 100%);
   border-bottom: 1px solid var(--line);
 }
 .fin-hero::before {
@@ -55,8 +71,8 @@ body.financing-page #hdr {
   letter-spacing: -0.02em;
 }
 .fin-hero p {
-  font-size: 16px; line-height: 1.7;
-  color: var(--mute-hi); max-width: 700px;
+  font-size: 18px; font-weight: 400; line-height: 1.75;
+  color: #333; max-width: 760px;
   margin-bottom: 36px;
 }
 
@@ -77,13 +93,13 @@ body.financing-page #hdr {
 /* ================================================
    WHY CARDS — 3-column row
    ================================================ */
-.fin-why { padding: 80px 40px; background: #060606; border-bottom: 1px solid var(--line); }
+.fin-why { padding: 80px 40px; background: #f7f7f4; border-bottom: 1px solid var(--line); }
 .fin-why-eyebrow { margin-bottom: 48px; }
 .fin-why-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
 }
 .fin-why-card {
-  background: linear-gradient(160deg, #111 0%, #0a0a0a 100%);
+  background: #fff;
   border: 1px solid var(--line); border-radius: 18px;
   padding: 32px 28px 30px;
   position: relative; overflow: hidden;
@@ -101,7 +117,7 @@ body.financing-page #hdr {
   font-size: 28px; letter-spacing: 0.01em; line-height: 1;
   margin-bottom: 14px; margin-top: 28px;
 }
-.fin-why-card p { font-size: 14px; line-height: 1.7; color: #aaa; }
+.fin-why-card p { font-size: 16px; font-weight: 400; line-height: 1.75; color: #333; }
 
 /* ================================================
    FORM LAYOUT — main + sidebar
@@ -161,21 +177,21 @@ body.financing-page #hdr {
 .fs-field { display: flex; flex-direction: column; gap: 7px; }
 .fs-label {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase;
-  color: var(--mute-hi); line-height: 1;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+  color: #222; line-height: 1.25;
 }
 .fs-label .req { font-style: normal; color: var(--accent); margin-left: 2px; }
 
 .fs-input,
 .fs-select,
 .fs-textarea {
-  background: var(--bg-2);
+  background: #fff;
   border: 1px solid var(--line);
   border-radius: 10px;
-  padding: 14px 16px;
+  padding: 16px 17px;
   font-family: 'Inter', sans-serif;
-  font-size: 15px; font-weight: 300;
-  color: var(--ink);
+  font-size: 17px; font-weight: 500;
+  color: #111;
   outline: none;
   transition: border-color .2s;
   -webkit-appearance: none;
@@ -186,11 +202,12 @@ body.financing-page #hdr {
 .fs-select:focus,
 .fs-textarea:focus {
   border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255,45,45,0.12);
 }
 .fs-input::placeholder,
-.fs-textarea::placeholder { color: #3a3a3a; }
+.fs-textarea::placeholder { color: #8a8a84; }
 .fs-select { color: var(--ink); cursor: pointer; }
-.fs-select option { background: #111; color: var(--ink); }
+.fs-select option { background: #fff; color: #111; }
 .fs-textarea { resize: vertical; min-height: 110px; }
 
 .fs-select-wrap { position: relative; }
@@ -209,15 +226,15 @@ body.financing-page #hdr {
    DISCLOSURE BLOCK
    ================================================ */
 .fs-disclosure {
-  background: var(--bg-2);
+  background: #fff;
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 22px 24px;
   margin-bottom: 24px;
 }
 .fs-disclosure p {
-  font-size: 12px; line-height: 1.75;
-  color: #777; font-family: 'Inter', sans-serif;
+  font-size: 14px; font-weight: 400; line-height: 1.75;
+  color: #444; font-family: 'Inter', sans-serif;
 }
 
 /* ================================================
@@ -226,7 +243,7 @@ body.financing-page #hdr {
 .fs-checks { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
 .fs-check {
   display: flex; align-items: flex-start; gap: 14px;
-  cursor: pointer; font-size: 14px; line-height: 1.55; color: var(--mute-hi);
+  cursor: pointer; font-size: 16px; font-weight: 400; line-height: 1.6; color: #333;
   user-select: none;
 }
 .fs-check input[type="checkbox"] {
@@ -269,7 +286,7 @@ body.financing-page #hdr {
 .fin-submit-note {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--mute); text-align: center;
+  color: #555; text-align: center;
   margin-top: 16px; line-height: 1.7;
 }
 
@@ -299,7 +316,7 @@ body.financing-page #hdr {
   font-style: italic; font-weight: 400;
   text-transform: lowercase; color: var(--cream);
 }
-.fin-success-block p { color: var(--mute-hi); font-size: 16px; line-height: 1.65; max-width: 480px; margin: 0 auto 36px; }
+.fin-success-block p { color: #333; font-size: 18px; font-weight: 400; line-height: 1.7; max-width: 540px; margin: 0 auto 36px; }
 .fin-success-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
 .fin-error-block {
@@ -315,7 +332,7 @@ body.financing-page #hdr {
    SIDEBAR
    ================================================ */
 .fin-sidebar {
-  background: var(--bg-2);
+  background: #fff;
   border: 1px solid var(--line);
   border-radius: 18px;
   padding: 32px 28px;
@@ -341,9 +358,9 @@ body.financing-page #hdr {
   color: var(--mute); margin-bottom: 6px; display: block;
 }
 .sb-row-val {
-  font-size: 14px; line-height: 1.55; color: var(--mute-hi);
+  font-size: 16px; font-weight: 400; line-height: 1.6; color: #333;
 }
-.sb-row-val a { color: var(--mute-hi); transition: color .2s; }
+.sb-row-val a { color: #333; transition: color .2s; }
 .sb-row-val a:hover { color: var(--ink); }
 .sb-divider { height: 1px; background: var(--line); margin: 24px 0; }
 
@@ -356,7 +373,7 @@ body.financing-page #hdr {
   border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
 }
 .sb-stat {
-  background: #0a0a0a; padding: 18px 16px;
+  background: #fff; padding: 18px 16px;
 }
 .sb-stat b {
   font-family: 'Bebas Neue', sans-serif;
@@ -381,7 +398,7 @@ body.financing-page #hdr {
 .fin-faq {
   padding: 80px 40px;
   border-top: 1px solid var(--line);
-  background: #060606;
+  background: #f7f7f4;
 }
 .fin-faq .section-head { margin-bottom: 48px; }
 .fin-faq .section-head h2 em.serif {
@@ -420,7 +437,7 @@ details[open] .faq-icon {
 }
 .faq-body {
   padding: 0 0 22px;
-  font-size: 15px; line-height: 1.75; color: #aaa; max-width: 760px;
+  font-size: 17px; font-weight: 400; line-height: 1.75; color: #333; max-width: 820px;
 }
 
 /* ================================================

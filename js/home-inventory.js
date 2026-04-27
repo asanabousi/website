@@ -127,16 +127,28 @@
       }
     }));
   }
+  async function updateLiveStockCount() {
+    const heroCount = document.getElementById('heroStockCount');
+    if (!heroCount) return;
+
+    try {
+      const res = await fetch(`${API_BASE}/inventory?featuredOnly=false&limit=100`);
+      if (!res.ok) throw new Error(`Inventory API error ${res.status}`);
+      const data = await res.json();
+      heroCount.textContent = (data.records || []).length.toLocaleString('en-CA');
+    } catch (err) {
+      console.warn('home-inventory count:', err);
+      heroCount.textContent = '—';
+    }
+  }
   async function load() {
     grid.innerHTML = `<div class="loading-state"><div class="loading-spinner"></div><span>Loading inventory…</span></div>`;
 
     try {
+      updateLiveStockCount();
       const records = await fetchFeatured();
 
       if (countEl) countEl.textContent = `Showing ${records.length} featured units`;
-
-      const heroCount = document.getElementById('heroStockCount');
-      if (heroCount) heroCount.textContent = records.length;
       if (!records.length) {
         grid.innerHTML = `<div class="loading-state">No inventory available right now. Check back soon.</div>`;
         return;

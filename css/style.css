@@ -20,7 +20,9 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: 'Inter', sans-serif;
-  font-weight: 300;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   letter-spacing: 0.005em;
@@ -94,7 +96,7 @@ header.stuck {
 
 nav ul { list-style: none; display: flex; gap: 36px; align-items: center; }
 nav a {
-  font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--ink); position: relative; padding: 8px 0; transition: color .25s;
 }
 nav a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 1px; background: var(--accent); transition: width .3s ease; }
@@ -102,7 +104,7 @@ nav a:hover::after, nav a.active::after { width: 100%; }
 nav a.active { color: var(--ink); }
 
 .header-cta {
-  font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
   padding: 10px 18px; border: 1px solid var(--line-hi); border-radius: 999px;
   transition: all .25s; display: flex; align-items: center; gap: 8px;
 }
@@ -149,7 +151,7 @@ nav a.active { color: var(--ink); }
 .btn {
   display: inline-flex; align-items: center; gap: 14px;
   padding: 18px 28px;
-  font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
   border-radius: 999px; transition: all .3s cubic-bezier(.2,.8,.2,1); position: relative; overflow: hidden;
 }
 .btn-primary { background: var(--ink); color: var(--bg); }
@@ -176,7 +178,7 @@ section { padding: 120px 40px; position: relative; }
 .section-head .left { display: flex; flex-direction: column; gap: 22px; }
 .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(50px, 7vw, 100px); line-height: 0.88; letter-spacing: -0.01em; }
 .section-title em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; text-transform: lowercase; }
-.section-head .right { color: #b5b5b5; font-size: 15px; line-height: 1.7; max-width: 420px; justify-self: end; }
+.section-head .right { color: #c7c7c7; font-size: 17px; font-weight: 400; line-height: 1.75; max-width: 460px; justify-self: end; }
 
 /* ---- Inventory cards (shared) ---- */
 .inv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -202,17 +204,17 @@ section { padding: 120px 40px; position: relative; }
 .card-badge.badge-featured { color: #3adf6a; border-color: rgba(58,223,106,0.3); }
 .card-badge.badge-reduced { color: #f59e0b; border-color: rgba(245,158,11,0.3); }
 .card-body { padding: 22px 22px 24px; }
-.card-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mute); }
-.card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 0.01em; line-height: 1; margin-bottom: 18px; }
+.card-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mute); }
+.card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 0.01em; line-height: 1; margin-bottom: 18px; }
 .card-meta {
   display: flex; gap: 14px; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--line);
-  font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mute);
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mute);
   flex-wrap: wrap;
 }
 .card-meta span { display: inline-flex; align-items: center; gap: 6px; }
 .card-meta span::before { content: ""; width: 3px; height: 3px; border-radius: 50%; background: var(--mute); }
 .card-foot { display: flex; justify-content: space-between; align-items: center; }
-.card-price { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 0.01em; }
+.card-price { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 0.01em; }
 .card-price small { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mute); display: block; margin-top: 2px; }
 .card-cta { width: 42px; height: 42px; border-radius: 50%; background: var(--ink); color: var(--bg); display: grid; place-items: center; transition: all .25s; flex-shrink: 0; }
 .card-cta:hover { background: var(--accent); color: var(--ink); transform: rotate(-45deg); }
@@ -224,10 +226,10 @@ footer { background: #030303; border-top: 1px solid var(--line); padding: 80px 4
 .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid var(--line); }
 .foot-brand { display: flex; flex-direction: column; gap: 20px; }
 .foot-brand .brand { margin-bottom: 10px; }
-.foot-brand p { color: #888; font-size: 14px; line-height: 1.7; max-width: 320px; }
+.foot-brand p { color: #aaa; font-size: 15px; font-weight: 400; line-height: 1.7; max-width: 340px; }
 .foot-col h6 { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--mute); margin-bottom: 22px; }
 .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-.foot-col a { font-size: 14px; color: #ccc; transition: color .2s; }
+.foot-col a { font-size: 15px; font-weight: 400; color: #d2d2d2; transition: color .2s; }
 .foot-col a:hover { color: var(--accent); }
 .footer-mega { padding: 60px 0 50px; text-align: center; position: relative; }
 .footer-mega h1 {

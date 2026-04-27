@@ -18,10 +18,11 @@
   display: flex; flex-direction: column; gap: 10px;
 }
 .fin-why-card ul li {
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 500;
   font-family: 'JetBrains Mono', monospace;
   letter-spacing: 0.05em;
-  color: #b5b5b5;
+  color: #444;
   padding-left: 18px;
   position: relative;
   line-height: 1.5;
@@ -35,7 +36,7 @@
 
 /* ---- Help text under block titles ---- */
 .fs-block-help {
-  font-size: 13px; color: var(--mute); line-height: 1.65;
+  font-size: 15px; font-weight: 400; color: #555; line-height: 1.7;
   margin: -6px 0 18px; max-width: 600px;
 }
 
@@ -49,7 +50,7 @@
 .fs-file-drop {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 14px;
-  background: var(--bg);
+  background: #fff;
   border: 2px dashed var(--line-hi);
   border-radius: 12px;
   padding: 40px 24px;
@@ -70,7 +71,7 @@
   font-size: 28px; line-height: 1;
 }
 .fs-file-text {
-  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--mute); line-height: 1.7;
 }
@@ -93,7 +94,7 @@
 .fs-consent {
   margin: 32px 0 24px;
   padding: 20px 24px;
-  background: rgba(255, 255, 255, 0.02);
+  background: #fff;
   border: 1px solid var(--line);
   border-radius: 12px;
   display: flex; flex-direction: column; gap: 14px;
@@ -101,7 +102,7 @@
 .fs-consent-row {
   display: flex; align-items: flex-start; gap: 12px;
   cursor: pointer;
-  font-size: 13px; line-height: 1.6; color: #c5c5c5;
+  font-size: 16px; font-weight: 400; line-height: 1.6; color: #333;
 }
 .fs-consent-row input[type="checkbox"] {
   accent-color: var(--accent);
