@@ -5,7 +5,7 @@
 .page-hero {
   padding: 140px 40px 60px;
   position: relative; overflow: hidden;
-  background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f7f7f4 100%);
   border-bottom: 1px solid var(--line);
 }
 .page-hero-bg {
@@ -31,7 +31,9 @@
 .inv-toolbar {
   padding: 20px 40px; border-bottom: 1px solid var(--line);
   display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-  background: #080808; position: sticky; top: 65px; z-index: 50;
+  background: rgba(247,247,244,0.94); position: sticky; top: 65px; z-index: 50;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 .inv-search-wrap {
   flex: 1; min-width: 200px; max-width: 400px;
@@ -70,7 +72,7 @@
 }
 
 /* ---- Category chips in toolbar ---- */
-.inv-cats { display: flex; gap: 8px; flex-wrap: wrap; padding: 12px 40px; border-bottom: 1px solid var(--line); background: #080808; }
+.inv-cats { display: flex; gap: 8px; flex-wrap: wrap; padding: 12px 40px; border-bottom: 1px solid var(--line); background: #ffffff; }
 
 /* ---- Main layout ---- */
 .inv-layout {
@@ -83,7 +85,7 @@
   position: sticky; top: 120px; align-self: start; height: fit-content;
   max-height: calc(100vh - 128px);
   overflow-y: auto;
-  background: #070707;
+  background: #ffffff;
   scrollbar-width: thin;
   scrollbar-color: var(--line-hi) transparent;
 }
@@ -150,7 +152,7 @@
 }
 .sidebar-make-item {
   display: flex; align-items: center; gap: 10px; cursor: pointer;
-  min-height: 30px; font-size: 14px; color: #ccc; transition: color .2s;
+  min-height: 30px; font-size: 14px; color: #333; transition: color .2s;
 }
 .sidebar-make-item:hover { color: var(--ink); }
 .sidebar-make-item input[type="checkbox"] {
@@ -176,10 +178,10 @@
 }
 .body-type-card {
   position: relative; min-height: 124px; border: 1px solid var(--line); border-radius: 8px;
-  background: #0d0d0d; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 10px; cursor: pointer; transition: border-color .2s, background .2s, transform .2s;
 }
-.body-type-card:hover { border-color: var(--line-hi); background: #111; }
+.body-type-card:hover { border-color: var(--line-hi); background: #f7f7f4; }
 .body-type-card input { position: absolute; opacity: 0; pointer-events: none; }
 .body-type-card .body-dot {
   position: absolute; top: 10px; left: 10px; width: 8px; height: 8px;
@@ -200,7 +202,7 @@
   transition: opacity .2s, filter .2s, transform .2s;
 }
 .body-type-card .body-name {
-  text-align: center; color: #ddd; font-size: 14px; line-height: 1.2;
+  text-align: center; color: #222; font-size: 14px; line-height: 1.2;
 }
 .body-type-card .make-count {
   position: absolute; right: 9px; bottom: 8px;
@@ -216,7 +218,7 @@
   filter: drop-shadow(0 0 12px rgba(255,45,45,0.22));
 }
 .sidebar-status { display: flex; flex-direction: column; gap: 8px; }
-.sidebar-status label { display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 14px; color: #ccc; transition: color .2s; }
+.sidebar-status label { display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 14px; color: #333; transition: color .2s; }
 .sidebar-status label:hover { color: var(--ink); }
 .sidebar-status input[type="checkbox"] { accent-color: var(--accent); width: 14px; height: 14px; cursor: pointer; }
 
@@ -324,9 +326,9 @@
 
 /* ===== Inventory collapsed filters patch ===== */
 .filter-toggle-btn {
-  border: 1px solid rgba(255,255,255,.16);
-  background: rgba(18,18,18,.92);
-  color: #fff;
+  border: 1px solid var(--line-hi);
+  background: #ffffff;
+  color: var(--ink);
   border-radius: 999px;
   padding: 12px 16px;
   font-family: 'JetBrains Mono', monospace;
@@ -364,7 +366,7 @@ body.inventory-filters-collapsed .inv-results .inv-grid {
 
 @media (max-width: 900px) {
   .filter-backdrop {
-    position: fixed; inset: 0; z-index: 140; background: rgba(0,0,0,0.62);
+    position: fixed; inset: 0; z-index: 140; background: rgba(16,16,16,0.32);
     opacity: 0; pointer-events: none; display: block; transition: opacity .25s;
   }
   body.filters-drawer-open .filter-backdrop { opacity: 1; pointer-events: auto; }

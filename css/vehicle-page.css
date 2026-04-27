@@ -25,7 +25,7 @@
 /* ---- Gallery ---- */
 .gallery { position: relative; }
 .gallery-main {
-  aspect-ratio: 4/3; background: radial-gradient(circle at 40% 40%, #1e1e1e 0%, #080808 75%);
+  aspect-ratio: 4/3; background: radial-gradient(circle at 40% 40%, #ffffff 0%, #ece9df 75%);
   border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
   position: relative; margin-bottom: 12px;
 }
@@ -33,7 +33,7 @@
 .gallery-nav {
   position: absolute; top: 50%; transform: translateY(-50%);
   width: 44px; height: 44px; border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.62);
+  border: 1px solid rgba(16,16,16,0.18); background: rgba(255,255,255,0.82);
   color: var(--ink); font-family: 'Bebas Neue', sans-serif; font-size: 36px;
   line-height: 1; display: grid; place-items: center; cursor: pointer;
   transition: background .2s, border-color .2s;
@@ -44,7 +44,7 @@
 .gallery-count {
   position: absolute; right: 14px; bottom: 14px;
   font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em;
-  color: var(--ink); background: rgba(0,0,0,0.62); border: 1px solid rgba(255,255,255,0.16);
+  color: var(--ink); background: rgba(255,255,255,0.86); border: 1px solid rgba(16,16,16,0.12);
   border-radius: 999px; padding: 8px 10px;
 }
 .gallery-main .no-photo {
@@ -67,8 +67,8 @@
 .veh-badge {
   font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
   padding: 6px 10px; border-radius: 4px;
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-  color: #ccc;
+  background: #ffffff; border: 1px solid var(--line);
+  color: #333;
 }
 .veh-badge.accent { color: var(--accent); border-color: rgba(255,45,45,0.3); background: rgba(255,45,45,0.08); }
 .veh-badge.green { color: #3adf6a; border-color: rgba(58,223,106,0.3); background: rgba(58,223,106,0.08); }
@@ -82,7 +82,7 @@
   font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.25em;
   text-transform: uppercase; color: var(--mute); margin-bottom: 14px;
 }
-.vehicle-description p { font-size: 15px; line-height: 1.75; color: #b5b5b5; }
+.vehicle-description p { font-size: 15px; line-height: 1.75; color: #333; }
 
 /* ---- Highlights ---- */
 .vehicle-highlights {
@@ -92,7 +92,7 @@
   font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.18em;
   text-transform: uppercase; padding: 6px 12px;
   background: rgba(255,45,45,0.08); border: 1px solid rgba(255,45,45,0.2);
-  border-radius: 4px; color: #ff8888;
+  border-radius: 4px; color: var(--accent);
 }
 
 /* ---- Sidebar ---- */
@@ -165,14 +165,14 @@
 /* ---- Availability modal ---- */
 .modal-overlay {
   position: fixed; inset: 0; z-index: 200;
-  background: rgba(0,0,0,0.85); backdrop-filter: blur(6px);
+  background: rgba(16,16,16,0.44); backdrop-filter: blur(6px);
   display: flex; align-items: center; justify-content: center;
   padding: 24px; opacity: 0; pointer-events: none;
   transition: opacity .3s;
 }
 .modal-overlay.open { opacity: 1; pointer-events: auto; }
 .modal {
-  background: #111; border: 1px solid var(--line-hi); border-radius: 20px;
+  background: #ffffff; border: 1px solid var(--line-hi); border-radius: 20px;
   padding: 40px; max-width: 520px; width: 100%;
   transform: translateY(20px); transition: transform .3s;
   max-height: 90vh; overflow-y: auto;
@@ -209,7 +209,7 @@
 .form-field input::placeholder, .form-field textarea::placeholder { color: var(--mute); }
 .form-field textarea { resize: vertical; min-height: 80px; }
 .form-field select { color: var(--ink); }
-.form-field select option { background: #111; }
+.form-field select option { background: #ffffff; color: #111; }
 .form-submit-btn {
   display: flex; align-items: center; justify-content: center; gap: 12px;
   padding: 18px; background: var(--ink); color: var(--bg); border-radius: 999px;
@@ -226,7 +226,7 @@
   text-align: center; padding: 32px 0;
 }
 .form-success h3 { font-family: 'Bebas Neue', sans-serif; font-size: 42px; margin-bottom: 12px; }
-.form-success p { color: #b5b5b5; font-size: 15px; line-height: 1.6; }
+.form-success p { color: #333; font-size: 15px; line-height: 1.6; }
 
 /* ---- More vehicles ---- */
 .more-vehicles { padding: 80px 40px; border-top: 1px solid var(--line); }
