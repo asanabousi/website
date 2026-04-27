@@ -113,7 +113,6 @@
   font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em;
   text-transform: uppercase; color: var(--mute); display: block; margin-top: 8px; line-height: 1.6;
 }
-}
 .finance-estimate {
   font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em;
   text-transform: uppercase; color: var(--mute); line-height: 1.8;
