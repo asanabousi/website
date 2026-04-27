@@ -9,9 +9,20 @@
   const spacer = document.getElementById('introSpacer');
   if (!intro || !spacer) return;
 
+  // Reduced-motion users: skip entirely
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     intro.remove();
     spacer.remove();
+    return;
+  }
+
+  // Touch devices (iPhone, iPad, Android): skip intro entirely.
+  // iOS Safari has reliability issues with scroll-driven animations and
+  // mobile users tend to scroll past intros immediately anyway.
+  if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+    intro.remove();
+    spacer.remove();
+    document.documentElement.classList.add('intro-done');
     return;
   }
 
@@ -57,11 +68,21 @@
     window.addEventListener('resize', schedule);
     tick();
 
-    // Safety fallback: ensure site appears after 12s regardless
+    // Safety fallback: ensure site appears after 5s regardless
     setTimeout(() => {
       document.documentElement.classList.add('intro-done');
       intro.classList.add('done');
-    }, 12000);
+    }, 5000);
+
+    // Touch devices (iOS/Android): if user hasn't scrolled enough in 8s,
+    // force-finish so they're never stuck staring at a black screen.
+    if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+      setTimeout(() => {
+        document.documentElement.classList.add('intro-done');
+        intro.classList.add('done');
+        intro.style.display = 'none';
+      }, 8000);
+    }
   }
 
   let started = false;
