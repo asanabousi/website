@@ -27,7 +27,7 @@ const API_BASE = 'https://unfazed-chatbot.unfazedmotors.workers.dev';
   let kmMax = null;
 
   // ---- Utilities ----
-  function fmt(n) { return n ? '$' + Math.round(Number(n)).toLocaleString('en-CA') : 'Contact Us'; }
+  function fmt(n) { return n ? '$' + Math.ceil(Number(n) / 100).toLocaleString('en-CA') : 'Contact Us'; }
   function fmtNum(n) { return n ? Number(n).toLocaleString('en-CA') : '—'; }
   function badgeClass(badge) {
     const map = { 'NEW': 'badge-new', 'Featured': 'badge-featured', 'Reduced': 'badge-reduced', 'Just Arrived': 'badge-featured' };
@@ -92,7 +92,7 @@ const API_BASE = 'https://unfazed-chatbot.unfazedmotors.workers.dev';
         ${km ? `<span>${fmtNum(km)} km</span>` : ''}
       </div>
       <div class="card-foot">
-        <div class="card-price">${fmt(price)}<small>CAD · OR FINANCE</small></div>
+        <div class="card-price">${fmt(price)}<small>/MO · Plus taxes &amp; fees · OAC</small></div>
         <span class="card-cta">↗</span>
       </div>
     </div>

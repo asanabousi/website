@@ -13,7 +13,7 @@
 
   function fmt(n) {
     if (!n && n !== 0) return '—';
-    return '$' + Math.round(Number(n)).toLocaleString('en-CA');
+    return '$' + Math.ceil(Number(n) / 100).toLocaleString('en-CA');
   }
   function fmtNum(n) { return n ? Number(n).toLocaleString('en-CA') : '—'; }
 
@@ -79,7 +79,7 @@
         ${km ? `<span>${fmtNum(km)} km</span>` : ''}
       </div>
       <div class="card-foot">
-        <div class="card-price">${fmt(price)}<small>CAD · OR FINANCE</small></div>
+        <div class="card-price">${fmt(price)}<small>/MO · Plus taxes &amp; fees · OAC</small></div>
         <span class="card-cta">↗</span>
       </div>
     </div>

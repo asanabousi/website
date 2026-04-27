@@ -17,7 +17,7 @@
   }
 
   // ---- Utilities ----
-  function fmt(n) { return n ? '$' + Math.round(Number(n)).toLocaleString('en-CA') : 'Contact for price'; }
+  function fmt(n) { return n ? '$' + Math.ceil(Number(n) / 100).toLocaleString('en-CA') : 'Contact for price'; }
   function fmtNum(n) { return n ? Number(n).toLocaleString('en-CA') : '—'; }
   function esc(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
