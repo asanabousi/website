@@ -34,6 +34,25 @@ const API_BASE = 'https://unfazed-chatbot.unfazedmotors.workers.dev';
     return '$' + Math.ceil(value / 100).toLocaleString('en-CA');
   }
   function fmtNum(n) { return n ? Number(n).toLocaleString('en-CA') : '—'; }
+  function cleanText(value) {
+    return String(value || '').replace(/\s+/g, ' ').trim();
+  }
+  function titleText(value) {
+    return cleanText(value).toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+  }
+  function bodyIcon(type) {
+    const key = String(type || '').toLowerCase();
+    if (key.includes('sport')) return 'SP';
+    if (key.includes('cruiser')) return 'CR';
+    if (key.includes('touring')) return 'TR';
+    if (key.includes('atv') || key.includes('utv')) return 'ATV';
+    if (key.includes('trailer') || key.includes('rv')) return 'RV';
+    if (key.includes('boat') || key.includes('water')) return 'WT';
+    if (key.includes('snow')) return 'SN';
+    if (key.includes('equipment')) return 'EQ';
+    if (key.includes('electric')) return 'EV';
+    return 'UM';
+  }
   function badgeClass(badge) {
     const map = { 'NEW': 'badge-new', 'Featured': 'badge-featured', 'Reduced': 'badge-reduced', 'Just Arrived': 'badge-featured' };
     return map[badge] || '';
@@ -97,7 +116,7 @@ const API_BASE = 'https://unfazed-chatbot.unfazedmotors.workers.dev';
         ${km ? `<span>${fmtNum(km)} km</span>` : ''}
       </div>
       <div class="card-foot">
-        <div class="card-price">${fmt(price)}<small>/MO · Plus taxes &amp; fees · OAC</small></div>
+        <div class="card-price">${fmt(price)}<small>b/w · OAC</small></div>
         <span class="card-cta">↗</span>
       </div>
     </div>
@@ -190,7 +209,7 @@ const API_BASE = 'https://unfazed-chatbot.unfazedmotors.workers.dev';
     if (searchInput) searchInput.value = '';
     if (sortSelect) sortSelect.value = 'newest';
     catChips.forEach(c => c.classList.toggle('active', c.dataset.cat === 'all'));
-    document.querySelectorAll('.sidebar-makes input[type="checkbox"]').forEach(cb => cb.checked = false);
+    document.querySelectorAll('.inv-sidebar input[type="checkbox"]').forEach(cb => cb.checked = false);
     ['yearMin', 'yearMax', 'kmMax'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.value = '';
@@ -265,9 +284,11 @@ const API_BASE = 'https://unfazed-chatbot.unfazedmotors.workers.dev';
     }
     if (section) section.classList.remove('hidden');
     container.innerHTML = sorted.map(([value, count]) => `
-      <label class="sidebar-make-item">
+      <label class="body-type-card">
         <input type="checkbox" value="${value.toLowerCase()}" ${activeBodyTypes.has(value.toLowerCase()) ? 'checked' : ''}>
-        <span>${value}</span>
+        <span class="body-dot"></span>
+        <span class="body-icon">${bodyIcon(value)}</span>
+        <span class="body-name">${value}</span>
         <span class="make-count">${count}</span>
       </label>
     `).join('');
@@ -456,18 +477,20 @@ async function fetchAll() {
     fields: {
       'Stock Number': bike.stockNumber,
       'Year': bike.year,
-      'Make': bike.make,
-      'Model': bike.model,
-      'Category': bike.category,
+      'Make': titleText(bike.make),
+      'Model': cleanText(bike.model),
+      'Category': cleanText(bike.category),
       'Mileage (km)': bike.mileage,
       'Engine (cc)': bike.engine,
       'Horsepower': bike.horsepower,
       'Transmission': bike.transmission,
-      'Color': bike.color,
+      'Color': cleanText(bike.color),
       'Price (CAD)': bike.price,
       'Badge': bike.badge,
       'Description': bike.description,
-      'Photos': bike.photo ? [{ url: bike.photo, thumbnails: { large: { url: bike.photo } } }] : [],
+      'Photos': Array.isArray(bike.photos) && bike.photos.length
+        ? bike.photos
+        : (bike.photo ? [{ url: bike.photo, thumbnails: { large: { url: bike.photo } } }] : []),
       'Status': bike.status
     }
   }));
@@ -496,10 +519,14 @@ async function fetchAll() {
 document.addEventListener("DOMContentLoaded", function () {
   const body = document.body;
   const toolbar = document.querySelector(".inv-toolbar");
+  const backdrop = document.getElementById("filterBackdrop");
+  const closeBtn = document.getElementById("filterClose");
 
   if (!toolbar) return;
 
-  body.classList.add("inventory-filters-collapsed");
+  if (window.matchMedia("(max-width: 900px)").matches) {
+    body.classList.add("inventory-filters-collapsed");
+  }
 
   let btn = document.getElementById("filterToggle");
 
@@ -511,13 +538,23 @@ document.addEventListener("DOMContentLoaded", function () {
     toolbar.prepend(btn);
   }
 
-  btn.textContent = "Filters";
-  btn.setAttribute("aria-expanded", "false");
+  btn.setAttribute("aria-expanded", body.classList.contains("inventory-filters-collapsed") ? "false" : "true");
+
+  function setFiltersOpen(open) {
+    body.classList.toggle("inventory-filters-collapsed", !open);
+    body.classList.toggle("filters-drawer-open", open);
+    btn.textContent = open ? "Hide Filters" : "Filters";
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    if (window.matchMedia("(max-width: 900px)").matches) {
+      document.body.style.overflow = open ? "hidden" : "";
+    }
+  }
 
   btn.addEventListener("click", function () {
-    const collapsed = body.classList.toggle("inventory-filters-collapsed");
-
-    btn.textContent = collapsed ? "Filters" : "Hide Filters";
-    btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
+    setFiltersOpen(body.classList.contains("inventory-filters-collapsed"));
   });
+
+  backdrop?.addEventListener("click", () => setFiltersOpen(false));
+  closeBtn?.addEventListener("click", () => setFiltersOpen(false));
+  setFiltersOpen(!body.classList.contains("inventory-filters-collapsed"));
 });
