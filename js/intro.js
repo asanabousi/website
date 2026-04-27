@@ -1,7 +1,7 @@
 /* ================================================
    UNFAZED MOTORS — Intro Animation Driver
-   Skips entirely on touch devices (iPhone, Android)
-   to avoid black-screen issues with iOS Safari.
+   Desktop: scroll-driven
+   Mobile (touch): auto-play 4-second timer
    ================================================ */
 
 (function () {
@@ -16,15 +16,9 @@
     return;
   }
 
-  // Touch devices (iPhone, iPad, Android): skip intro entirely
-  if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
-    intro.remove();
-    spacer.remove();
-    document.documentElement.classList.add('intro-done');
-    return;
-  }
+  const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 
-  // ---- Desktop intro animation ----
+  // Preload helmet images
   const helmetSrc = intro.querySelector('.intro-helmet')?.src;
   const damagedSrc = intro.querySelector('.intro-helmet-damaged')?.src;
   let loaded = 0;
@@ -35,6 +29,36 @@
     if (history.scrollRestoration) history.scrollRestoration = 'manual';
     window.scrollTo(0, 0);
 
+    if (isTouch) {
+      // ---- MOBILE: auto-play timer ----
+      // Spacer not needed on mobile, hide it
+      spacer.style.display = 'none';
+      // Animate --p from 0 to 1 over 4 seconds
+      const start = performance.now();
+      const duration = 4000;
+      function step(now) {
+        const elapsed = now - start;
+        const p = Math.min(1, elapsed / duration);
+        intro.style.setProperty('--p', p.toFixed(4));
+        if (p < 1) {
+          requestAnimationFrame(step);
+        } else {
+          intro.classList.add('done');
+          document.documentElement.classList.add('intro-done');
+          setTimeout(() => { intro.style.display = 'none'; }, 600);
+        }
+      }
+      requestAnimationFrame(step);
+      // Allow tap-to-skip
+      intro.addEventListener('click', () => {
+        intro.classList.add('done');
+        document.documentElement.classList.add('intro-done');
+        setTimeout(() => { intro.style.display = 'none'; }, 400);
+      }, { once: true });
+      return;
+    }
+
+    // ---- DESKTOP: scroll-driven ----
     let done = false;
     function tick() {
       const rect = spacer.getBoundingClientRect();
@@ -65,7 +89,6 @@
     window.addEventListener('resize', schedule);
     tick();
 
-    // Safety fallback: ensure site appears after 5s regardless
     setTimeout(() => {
       document.documentElement.classList.add('intro-done');
       intro.classList.add('done');

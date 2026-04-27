@@ -131,7 +131,7 @@
         <div class="feature-stats">
           <div class="s"><b id="heroFeatHP">—</b><span>HP</span></div>
           <div class="s"><b id="heroFeatCC">—</b><span>CC</span></div>
-          <div class="s"><b id="heroFeatPrice">—</b><span>CAD</span></div>
+          <div class="s"><b id="heroFeatPrice">—</b><span>/MO</span></div>
         </div>
       </div>
     </div>
@@ -369,7 +369,7 @@
     if (el('heroFeatName')) el('heroFeatName').textContent = `${f['Make'] || ''} ${f['Model'] || ''}`;
     if (el('heroFeatHP')) el('heroFeatHP').textContent = f['Horsepower'] ? Number(f['Horsepower']).toLocaleString('en-CA') : '—';
     if (el('heroFeatCC')) el('heroFeatCC').textContent = f['Engine (cc)'] ? Number(f['Engine (cc)']).toLocaleString('en-CA') : '—';
-    if (el('heroFeatPrice')) el('heroFeatPrice').textContent = f['Price (CAD)'] ? '$' + Math.round(Number(f['Price (CAD)'])).toLocaleString('en-CA') : '—';
+    if (el('heroFeatPrice')) el('heroFeatPrice').textContent = f['Price (CAD)'] ? '$' + Math.ceil(Number(f['Price (CAD)']) / 100).toLocaleString('en-CA') : '—';
     if (el('heroStockCount')) {
       // Will be set by home-inventory.js
     }
