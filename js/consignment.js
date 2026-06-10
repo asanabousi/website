@@ -146,35 +146,38 @@
 
     const fd = new FormData(form);
 
-    let airtableOk = false;
-
-    try {
-      const airtableResult = await fetch(`${API_BASE}/lead`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(buildAirtablePayload(fd))
-      });
-
-      airtableOk = airtableResult.ok;
-      if (!airtableOk) {
-        console.warn('Airtable lead failed:', airtableResult.status, await airtableResult.text());
-      }
-    } catch (err) {
-      console.warn('Airtable lead failed:', err);
-    }
-
-    // Formspree sends the email copy with photos. It should never block the Airtable lead.
-    fetch(form.action, {
+    const airtablePromise = fetch(`${API_BASE}/lead`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(buildAirtablePayload(fd))
+    });
+    const formspreePromise = fetch(form.action, {
       method: 'POST',
       body: fd,
       headers: { Accept: 'application/json' }
-    }).then((res) => {
-      if (!res.ok) console.warn('Formspree email copy failed:', res.status);
-    }).catch((err) => {
-      console.warn('Formspree email copy failed:', err);
     });
 
-    if (airtableOk) {
+    const [airtableResult, formspreeResult] = await Promise.allSettled([
+      airtablePromise,
+      formspreePromise
+    ]);
+    const airtableOk = airtableResult.status === 'fulfilled' && airtableResult.value.ok;
+    const formspreeOk = formspreeResult.status === 'fulfilled' && formspreeResult.value.ok;
+
+    if (!airtableOk) {
+      console.warn(
+        'Airtable lead failed:',
+        airtableResult.status === 'rejected' ? airtableResult.reason : airtableResult.value.status
+      );
+    }
+    if (!formspreeOk) {
+      console.warn(
+        'Formspree email copy failed:',
+        formspreeResult.status === 'rejected' ? formspreeResult.reason : formspreeResult.value.status
+      );
+    }
+
+    if (airtableOk || formspreeOk) {
       // Hide form, show success
       const formWrap = document.getElementById('conFormWrap');
       if (formWrap) formWrap.style.display = 'none';
