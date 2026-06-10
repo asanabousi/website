@@ -35,55 +35,135 @@
     return el ? el.checked : false;
   }
 
+  function durationText(years, months) {
+    const y = Number(years || 0);
+    const m = Number(months || 0);
+    const parts = [];
+    if (y) parts.push(`${y} year${y === 1 ? '' : 's'}`);
+    if (m) parts.push(`${m} month${m === 1 ? '' : 's'}`);
+    return parts.length ? parts.join(' ') : '0 months';
+  }
+
+  function durationMonths(years, months) {
+    return Number(years || 0) * 12 + Number(months || 0);
+  }
+
+  function section(lines, title) {
+    lines.push(`\n=== ${title} ===`);
+  }
+
   function buildAirtableNotes(fd) {
     const lines = [];
     const push = (label, v) => { if (v) lines.push(`${label}: ${v}`); };
 
+    section(lines, 'PERSONAL INFORMATION');
+    push('Salutation', fd.get('salutation'));
+    push('First Name', fd.get('firstName'));
     push('Middle Name', fd.get('middleName'));
-    push('Date of Birth', fd.get('dateOfBirth'));
-    push("Driver's Licence", fd.get('driverLicense'));
+    push('Last Name', fd.get('lastName'));
+    push('Suffix', fd.get('suffix'));
     push('SIN', fd.get('sin'));
-    push('Province (ID)', fd.get('licenseProvince'));
+    push('Phone', fd.get('phone'));
+    push('Mobile Phone', fd.get('mobilePhone'));
+    push('Date of Birth', fd.get('dateOfBirth'));
+    push('Gender', fd.get('gender'));
     push('Marital Status', fd.get('maritalStatus'));
+    push('Email', fd.get('email'));
+    push('Language', fd.get('language'));
     push('Dependents', fd.get('dependents'));
-    push('Alt Phone', fd.get('altPhone'));
-    push('Best Time to Call', fd.get('bestTime'));
-    push('Preferred Contact', fd.get('contactMethod'));
-    push('Street Address', fd.get('street'));
-    push('Apt / Suite', fd.get('apt'));
+    push("Driver's Licence", fd.get('driverLicense'));
+    push('Province of Licence', fd.get('licenseProvince'));
+
+    section(lines, 'CURRENT ADDRESS');
+    push('Postal Code', fd.get('postalCode'));
+    push('Address Type', fd.get('addressType'));
+    push('Suite No.', fd.get('suiteNo'));
+    push('Address No.', fd.get('addressNo'));
+    push('Street Name', fd.get('streetName'));
+    push('Street Type', fd.get('streetType'));
     push('City', fd.get('city'));
-    push('Province (Res)', fd.get('province'));
-    push('Postal Code', fd.get('postal'));
-    push('Time at Address', fd.get('timeAtAddress'));
-    push('Housing', fd.get('housingStatus'));
-    push('Monthly Housing Payment', fd.get('monthlyHousing'));
-    push('Employer', fd.get('employer'));
-    push('Job Title', fd.get('jobTitle'));
-    push('Employer Phone', fd.get('employerPhone'));
-    push('Employment Type', fd.get('employmentType'));
-    push('Employer Address', fd.get('employerAddress'));
-    push('Time at Job', fd.get('timeAtJob'));
-    push('Gross Monthly Income', fd.get('grossMonthly'));
-    push('Additional Income', fd.get('additionalIncome'));
-    push('Additional Income Source', fd.get('additionalIncomeSource'));
-    push('Vehicle Category', fd.get('preferredCategory'));
-    push('Budget', fd.get('budget'));
+    push('Province', fd.get('province'));
+    push('Duration', durationText(fd.get('currentAddressYears'), fd.get('currentAddressMonths')));
+
+    if (durationMonths(fd.get('currentAddressYears'), fd.get('currentAddressMonths')) < 24) {
+      section(lines, 'PREVIOUS ADDRESS');
+      push('Postal Code', fd.get('previousPostalCode'));
+      push('Address Type', fd.get('previousAddressType'));
+      push('Suite No.', fd.get('previousSuiteNo'));
+      push('Address No.', fd.get('previousAddressNo'));
+      push('Street Name', fd.get('previousStreetName'));
+      push('City', fd.get('previousCity'));
+      push('Province', fd.get('previousProvince'));
+      push('Duration', durationText(fd.get('previousAddressYears'), fd.get('previousAddressMonths')));
+    }
+
+    section(lines, 'HOME/MORTGAGE DETAILS');
+    push('Home', fd.get('housing'));
+    push('Mortgage Amount', fd.get('mortgageAmount'));
+    push('Monthly Payment', fd.get('monthlyHousingPayment'));
+    push('Market Value', fd.get('marketValue'));
+    push('Mortgage Holder', fd.get('mortgageHolder'));
+
+    section(lines, 'CURRENT EMPLOYMENT');
+    push('Type', fd.get('employmentType'));
+    push('Employer', fd.get('employerName'));
+    push('Status', fd.get('employmentStatus'));
+    push('Occupation', fd.get('jobTitle'));
+    push('Industry Type', fd.get('industryType'));
+    push('Telephone', fd.get('employerPhone'));
+    push('Ext.', fd.get('employerExt'));
+    push('Employment Address', fd.get('employerAddress'));
+    push('City', fd.get('employerCity'));
+    push('Province', fd.get('employerProvince'));
+    push('Duration', durationText(fd.get('currentJobYears'), fd.get('currentJobMonths')));
+
+    if (durationMonths(fd.get('currentJobYears'), fd.get('currentJobMonths')) < 24) {
+      section(lines, 'PREVIOUS EMPLOYMENT');
+      push('Type', fd.get('previousEmploymentType'));
+      push('Employer', fd.get('previousEmployer'));
+      push('Occupation', fd.get('previousJobTitle'));
+      push('Telephone', fd.get('previousEmployerPhone'));
+      push('Employment Address', fd.get('previousEmployerAddress'));
+      push('City', fd.get('previousEmployerCity'));
+      push('Province', fd.get('previousEmployerProvince'));
+      push('Duration', durationText(fd.get('previousJobYears'), fd.get('previousJobMonths')));
+    }
+
+    section(lines, 'INCOME DETAILS');
+    push('Gross Income', fd.get('grossMonthlyIncome'));
+    push('Per', fd.get('incomePer'));
+    push('Proof of Income Type', fd.get('proofIncomeType'));
+    push('Annual Employment Gross', fd.get('annualEmploymentGross'));
+    push('Other Income Source', fd.get('additionalIncomeSource'));
+    push('Other Monthly Amount', fd.get('additionalIncomeAmount'));
+
+    section(lines, 'VEHICLE OF INTEREST');
+    push('Specific Vehicle', fd.get('specificVehicle'));
+    push('Preferred Category', fd.get('preferredCategory'));
+    push('Budget Range', fd.get('budgetRange'));
     push('Down Payment', fd.get('downPayment'));
     push('Trade-In', fd.get('tradeIn'));
     push('Desired Term', fd.get('desiredTerm'));
-    push('Credit Rating (Self)', fd.get('creditRating'));
+
+    section(lines, 'CREDIT HISTORY');
+    push('Credit Self-Reported', fd.get('creditSelfReported'));
     push('Bankruptcy', fd.get('bankruptcy'));
     push('Consumer Proposal', fd.get('consumerProposal'));
     push('Repossessions', fd.get('repossessions'));
     push('Current Auto Loan', fd.get('currentAutoLoan'));
+
+    section(lines, 'AUTHORIZATION');
     push('Marketing Opt-In', checkedById('marketingOptIn') ? 'Yes' : 'No');
-    push('E-Signature', fd.get('eSignature'));
+    push('E-Signature', fd.get('electronicSignature'));
     push('Date Signed', fd.get('dateSigned'));
 
     const comments = fd.get('comments');
-    if (comments) lines.push(`\nComments:\n${comments}`);
+    if (comments) {
+      section(lines, 'COMMENTS');
+      lines.push(comments);
+    }
 
-    return lines.join('\n');
+    return lines.join('\n').trim();
   }
 
   function buildAirtablePayload(fd) {
@@ -102,6 +182,36 @@
       notes: buildAirtableNotes(fd)
     };
   }
+
+
+  function syncConditionalBlock(blockId, shouldShow) {
+    const block = document.getElementById(blockId);
+    if (!block) return;
+    block.hidden = !shouldShow;
+    block.querySelectorAll('.conditional-required').forEach((el) => {
+      el.required = shouldShow;
+    });
+  }
+
+  function updateConditionalSections() {
+    const addressYears = document.getElementById('currentAddressYears')?.value || '';
+    const addressMonthValue = document.getElementById('currentAddressMonths')?.value || '';
+    const jobYears = document.getElementById('currentJobYears')?.value || '';
+    const jobMonthValue = document.getElementById('currentJobMonths')?.value || '';
+    const addressStarted = addressYears !== '' || addressMonthValue !== '';
+    const jobStarted = jobYears !== '' || jobMonthValue !== '';
+    const addressMonths = durationMonths(addressYears, addressMonthValue);
+    const jobMonths = durationMonths(jobYears, jobMonthValue);
+
+    syncConditionalBlock('previousAddressBlock', addressStarted && addressMonths < 24);
+    syncConditionalBlock('previousEmploymentBlock', jobStarted && jobMonths < 24);
+  }
+
+  ['currentAddressYears', 'currentAddressMonths', 'currentJobYears', 'currentJobMonths'].forEach((id) => {
+    document.getElementById(id)?.addEventListener('input', updateConditionalSections);
+  });
+  updateConditionalSections();
+
 
   // ── Submit handler ────────────────────────────────────────────────────────
 

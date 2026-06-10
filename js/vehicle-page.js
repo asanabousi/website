@@ -70,13 +70,13 @@
     const mainUrl = photos[0].url;
     const thumbs = photos.map((p, i) => `
       <button class="thumb ${i === 0 ? 'active' : ''}" type="button" data-idx="${i}" data-url="${p.url}" aria-label="Show photo ${i + 1}">
-        <img src="${p.thumbnails?.small?.url || p.url}" alt="Photo ${i + 1}" loading="lazy">
+        <img src="${p.thumbnails?.small?.url || p.url}" alt="Photo ${i + 1}" loading="lazy" decoding="async">
       </button>`).join('');
 
     return `
       <div class="gallery-main">
         <button class="gallery-open" type="button" id="galleryOpen" aria-label="Open photo gallery">
-          <img src="${mainUrl}" alt="Vehicle photo" id="galleryMain">
+          <img src="${mainUrl}" alt="Vehicle photo" id="galleryMain" decoding="async" fetchpriority="high">
         </button>
         ${photos.length > 1 ? `
           <button class="gallery-nav gallery-prev" type="button" id="galleryPrev" aria-label="Previous photo">‹</button>
@@ -96,7 +96,7 @@
         <button class="photo-lightbox-close" type="button" id="photoLightboxClose" aria-label="Close gallery"></button>
         <button class="photo-lightbox-nav photo-lightbox-prev" type="button" id="photoLightboxPrev" aria-label="Previous photo"></button>
         <figure class="photo-lightbox-frame">
-          <img src="${photos[0].url}" alt="${safeTitle}" id="photoLightboxImg">
+          <img src="${photos[0].url}" alt="${safeTitle}" id="photoLightboxImg" decoding="async">
           <figcaption id="photoLightboxCount">1 / ${photos.length}</figcaption>
         </figure>
         <button class="photo-lightbox-nav photo-lightbox-next" type="button" id="photoLightboxNext" aria-label="Next photo"></button>

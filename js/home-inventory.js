@@ -76,7 +76,7 @@
     return `<article class="card reveal" style="transition-delay:${delay}ms">
   <a href="vehicle.html?stock=${encodeURIComponent(stock)}">
     <div class="card-media">
-    ${thumb ? `<img src="${thumb}" alt="${year} ${make} ${model}" loading="lazy">` : `<img src="assets/coming-soon.png" alt="Photos coming soon" loading="lazy">`}
+    ${thumb ? `<img src="${thumb}" alt="${year} ${make} ${model}" loading="lazy" decoding="async">` : `<img src="assets/coming-soon.png" alt="Photos coming soon" loading="lazy" decoding="async">`}
       ${badge ? `<span class="card-badge ${badgeClass(badge)}">${badge}</span>` : ''}
     </div>
     <div class="card-body">

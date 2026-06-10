@@ -179,6 +179,10 @@ body.financing-page #hdr {
   gap: 18px 22px;
 }
 .fs-grid .full { grid-column: 1 / -1; }
+.fs-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.fs-split { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.fs-conditional { margin-top: 28px; padding: 24px; background: #fff; border: 1px solid var(--line); border-radius: 14px; }
+.fs-conditional[hidden] { display: none !important; }
 
 .fs-field { display: flex; flex-direction: column; gap: 7px; }
 .fs-label {
@@ -461,7 +465,7 @@ details[open] .faq-icon {
   .fin-why-grid { grid-template-columns: 1fr; }
   .fin-hero, .fin-why, .fin-faq { padding-left: 24px; padding-right: 24px; }
   .fin-hero { padding-top: 100px; }
-  .fs-grid { grid-template-columns: 1fr; }
+  .fs-grid, .fs-grid-3 { grid-template-columns: 1fr; }
   .fs-grid .full { grid-column: 1; }
   .fs-section-title { font-size: 24px; }
   .fin-faq .section-head { grid-template-columns: 1fr; }

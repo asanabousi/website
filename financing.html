@@ -21,7 +21,7 @@
 <!-- ========== HEADER ========== -->
 <header id="hdr" class="stuck">
   <a href="index.html" class="brand">
-    <div class="brand-mark"><img src="assets/logo-damaged.png" alt="Unfazed Motors"></div>
+    <div class="brand-mark"><img src="assets/logo-damaged.png" decoding="async" loading="lazy" decoding="async" alt="Unfazed Motors"></div>
     <div class="brand-name">UNFAZED<small>MOTORS · EST. 2026</small></div>
   </a>
   <nav>
@@ -127,13 +127,42 @@
         <input type="hidden" name="_subject" value="Financing Application — Unfazed Motors">
         <input type="hidden" name="_replyto" id="replyto">
 
-        <!-- ============ SECTION 01 — PERSONAL ============ -->
+        <!-- ============ SECTION 01 - PERSONAL INFORMATION ============ -->
         <div class="fs-section-head">
           <span class="fs-num">01</span>
-          <h2 class="fs-section-title">Personal</h2>
+          <h2 class="fs-section-title">Personal Information</h2>
           <div class="fs-section-rule"></div>
         </div>
-        <div class="fs-grid">
+        <div class="fs-grid fs-grid-3">
+          <div class="fs-field">
+            <label class="fs-label" for="salutation">Salutation</label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="salutation" name="salutation">
+                <option value="" selected>Select...</option>
+                <option>Mr.</option>
+                <option>Mrs.</option>
+                <option>Ms.</option>
+                <option>Miss</option>
+                <option>Dr.</option>
+              </select>
+            </div>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="suffix">Suffix</label>
+            <input class="fs-input" type="text" id="suffix" name="suffix" placeholder="Jr., Sr., III">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="gender">Gender</label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="gender" name="gender">
+                <option value="" selected>Select...</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
+          </div>
           <div class="fs-field">
             <label class="fs-label" for="firstName">First Name <i class="req">*</i></label>
             <input class="fs-input" type="text" id="firstName" name="firstName" required autocomplete="given-name">
@@ -147,244 +176,375 @@
             <input class="fs-input" type="text" id="lastName" name="lastName" required autocomplete="family-name">
           </div>
           <div class="fs-field">
+            <label class="fs-label" for="sin">SIN</label>
+            <input class="fs-input" type="text" id="sin" name="sin" inputmode="numeric" maxlength="11" placeholder="000-000-000" autocomplete="off">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="phone">Phone <i class="req">*</i></label>
+            <input class="fs-input" type="tel" id="phone" name="phone" required placeholder="780-000-0000" autocomplete="tel">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="mobilePhone">Mobile Phone</label>
+            <input class="fs-input" type="tel" id="mobilePhone" name="mobilePhone" placeholder="780-000-0000" autocomplete="tel">
+          </div>
+          <div class="fs-field">
             <label class="fs-label" for="dob">Date of Birth <i class="req">*</i></label>
             <input class="fs-input" type="date" id="dob" name="dateOfBirth" required>
           </div>
           <div class="fs-field">
-            <label class="fs-label" for="dlNum">Driver's License Number <i class="req">*</i></label>
-            <input class="fs-input" type="text" id="dlNum" name="driverLicense" required autocomplete="off">
+            <label class="fs-label" for="maritalStatus">Marital Status</label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="maritalStatus" name="maritalStatus">
+                <option value="" selected>Select...</option>
+                <option>Single</option>
+                <option>Married</option>
+                <option>Common-law</option>
+                <option>Divorced</option>
+                <option>Separated</option>
+                <option>Widowed</option>
+              </select>
+            </div>
           </div>
           <div class="fs-field">
-            <label class="fs-label" for="sin">SIN <span style="color:var(--mute);font-weight:400;text-transform:none;letter-spacing:0.05em">(optional — speeds up credit check)</span></label>
-            <input class="fs-input" type="text" id="sin" name="sin" inputmode="numeric" maxlength="11" placeholder="000-000-000" autocomplete="off">
+            <label class="fs-label" for="emailInput">Email <i class="req">*</i></label>
+            <input class="fs-input" type="email" id="emailInput" name="email" required autocomplete="email">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="language">Language</label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="language" name="language">
+                <option>English</option>
+                <option>French</option>
+                <option>Arabic</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="dependents">Dependents</label>
+            <input class="fs-input" type="number" id="dependents" name="dependents" min="0" placeholder="0">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="dlNum">Driver's License Number</label>
+            <input class="fs-input" type="text" id="dlNum" name="driverLicense" autocomplete="off">
           </div>
           <div class="fs-field">
             <label class="fs-label" for="dlProv">Province of License</label>
             <div class="fs-select-wrap">
               <select class="fs-select" id="dlProv" name="licenseProvince">
                 <option value="Alberta" selected>Alberta</option>
-                <option value="British Columbia">British Columbia</option>
-                <option value="Manitoba">Manitoba</option>
-                <option value="New Brunswick">New Brunswick</option>
-                <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
-                <option value="Northwest Territories">Northwest Territories</option>
-                <option value="Nova Scotia">Nova Scotia</option>
-                <option value="Nunavut">Nunavut</option>
-                <option value="Ontario">Ontario</option>
-                <option value="Prince Edward Island">Prince Edward Island</option>
-                <option value="Quebec">Quebec</option>
-                <option value="Saskatchewan">Saskatchewan</option>
-                <option value="Yukon">Yukon</option>
+                <option>British Columbia</option>
+                <option>Manitoba</option>
+                <option>New Brunswick</option>
+                <option>Newfoundland and Labrador</option>
+                <option>Northwest Territories</option>
+                <option>Nova Scotia</option>
+                <option>Nunavut</option>
+                <option>Ontario</option>
+                <option>Prince Edward Island</option>
+                <option>Quebec</option>
+                <option>Saskatchewan</option>
+                <option>Yukon</option>
               </select>
             </div>
-          </div>
-          <div class="fs-field">
-            <label class="fs-label" for="maritalStatus">Marital Status</label>
-            <div class="fs-select-wrap">
-              <select class="fs-select" id="maritalStatus" name="maritalStatus">
-                <option value="" disabled selected>Select…</option>
-                <option value="Single">Single</option>
-                <option value="Married">Married</option>
-                <option value="Common-law">Common-law</option>
-                <option value="Divorced">Divorced</option>
-                <option value="Separated">Separated</option>
-                <option value="Widowed">Widowed</option>
-              </select>
-            </div>
-          </div>
-          <div class="fs-field">
-            <label class="fs-label" for="dependents">Number of Dependents</label>
-            <input class="fs-input" type="number" id="dependents" name="dependents" min="0" placeholder="0">
           </div>
         </div>
 
-        <!-- ============ SECTION 02 — CONTACT ============ -->
+        <!-- ============ SECTION 02 - CURRENT ADDRESS ============ -->
         <div class="fs-section-head">
           <span class="fs-num">02</span>
-          <h2 class="fs-section-title">Contact</h2>
+          <h2 class="fs-section-title">Current Address</h2>
           <div class="fs-section-rule"></div>
         </div>
-        <div class="fs-grid">
+        <div class="fs-grid fs-grid-3">
           <div class="fs-field">
-            <label class="fs-label" for="phone">Phone Number <i class="req">*</i></label>
-            <input class="fs-input" type="tel" id="phone" name="phone" required placeholder="780-000-0000" autocomplete="tel">
+            <label class="fs-label" for="postal">Postal Code <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="postal" name="postalCode" required placeholder="T6E 5A6" autocomplete="postal-code">
           </div>
           <div class="fs-field">
-            <label class="fs-label" for="altPhone">Alternate Phone</label>
-            <input class="fs-input" type="tel" id="altPhone" name="altPhone" placeholder="780-000-0000">
-          </div>
-          <div class="fs-field">
-            <label class="fs-label" for="emailInput">Email Address <i class="req">*</i></label>
-            <input class="fs-input" type="email" id="emailInput" name="email" required autocomplete="email">
-          </div>
-          <div class="fs-field">
-            <label class="fs-label" for="bestTime">Best Time to Reach</label>
+            <label class="fs-label" for="addressType">Address Type</label>
             <div class="fs-select-wrap">
-              <select class="fs-select" id="bestTime" name="bestTime">
-                <option value="" disabled selected>Select…</option>
-                <option value="Morning">Morning</option>
-                <option value="Afternoon">Afternoon</option>
-                <option value="Evening">Evening</option>
-                <option value="Anytime">Anytime</option>
+              <select class="fs-select" id="addressType" name="addressType">
+                <option value="" selected>Select...</option>
+                <option>House</option>
+                <option>Apartment</option>
+                <option>Condo</option>
+                <option>Townhouse</option>
+                <option>Other</option>
               </select>
             </div>
-          </div>
-          <div class="fs-field">
-            <label class="fs-label" for="contactMethod">Preferred Contact Method</label>
-            <div class="fs-select-wrap">
-              <select class="fs-select" id="contactMethod" name="contactMethod">
-                <option value="" disabled selected>Select…</option>
-                <option value="Phone">Phone</option>
-                <option value="Email">Email</option>
-                <option value="Text">Text</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <!-- ============ SECTION 03 — ADDRESS ============ -->
-        <div class="fs-section-head">
-          <span class="fs-num">03</span>
-          <h2 class="fs-section-title">Address</h2>
-          <div class="fs-section-rule"></div>
-        </div>
-        <p class="fs-sub-label">Current Address</p>
-        <div class="fs-grid">
-          <div class="fs-field full">
-            <label class="fs-label" for="street">Street <i class="req">*</i></label>
-            <input class="fs-input" type="text" id="street" name="street" required autocomplete="street-address">
-          </div>
-          <div class="fs-field">
-            <label class="fs-label" for="apt">Apt / Unit</label>
-            <input class="fs-input" type="text" id="apt" name="apt">
           </div>
           <div class="fs-field">
             <label class="fs-label" for="city">City <i class="req">*</i></label>
-            <input class="fs-input" type="text" id="city" name="city" required autocomplete="address-level2">
+            <input class="fs-input" type="text" id="city" name="city" required autocomplete="address-level2" value="Edmonton">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="suiteNo">Suite No.</label>
+            <input class="fs-input" type="text" id="suiteNo" name="suiteNo">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="addressNo">Address No.</label>
+            <input class="fs-input" type="text" id="addressNo" name="addressNo">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="streetName">Street Name <i class="req">*</i></label>
+            <input class="fs-input" type="text" id="streetName" name="streetName" required autocomplete="street-address">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="streetType">Street Type</label>
+            <input class="fs-input" type="text" id="streetType" name="streetType" placeholder="Ave, St, Blvd">
           </div>
           <div class="fs-field">
             <label class="fs-label" for="addrProv">Province <i class="req">*</i></label>
             <div class="fs-select-wrap">
               <select class="fs-select" id="addrProv" name="province" required>
                 <option value="Alberta" selected>Alberta</option>
-                <option value="British Columbia">British Columbia</option>
-                <option value="Manitoba">Manitoba</option>
-                <option value="New Brunswick">New Brunswick</option>
-                <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
-                <option value="Northwest Territories">Northwest Territories</option>
-                <option value="Nova Scotia">Nova Scotia</option>
-                <option value="Nunavut">Nunavut</option>
-                <option value="Ontario">Ontario</option>
-                <option value="Prince Edward Island">Prince Edward Island</option>
-                <option value="Quebec">Quebec</option>
-                <option value="Saskatchewan">Saskatchewan</option>
-                <option value="Yukon">Yukon</option>
+                <option>British Columbia</option>
+                <option>Manitoba</option>
+                <option>Ontario</option>
+                <option>Saskatchewan</option>
+                <option>Other</option>
               </select>
             </div>
           </div>
-          <div class="fs-field">
-            <label class="fs-label" for="postal">Postal Code <i class="req">*</i></label>
-            <input class="fs-input" type="text" id="postal" name="postalCode" required placeholder="T6E 5A6" autocomplete="postal-code">
-          </div>
-          <div class="fs-field">
-            <label class="fs-label" for="timeAtAddr">How Long at This Address? <i class="req">*</i></label>
-            <input class="fs-input" type="text" id="timeAtAddr" name="timeAtAddress" required placeholder="e.g. 3 years 6 months">
-          </div>
-          <div class="fs-field">
-            <label class="fs-label" for="housing">Housing <i class="req">*</i></label>
-            <div class="fs-select-wrap">
-              <select class="fs-select" id="housing" name="housing" required>
-                <option value="" disabled selected>Select…</option>
-                <option value="Own">Own</option>
-                <option value="Rent">Rent</option>
-                <option value="Live with Family">Live with Family</option>
-                <option value="Other">Other</option>
-              </select>
+          <div class="fs-duration fs-field">
+            <label class="fs-label">Duration <i class="req">*</i></label>
+            <div class="fs-split">
+              <input class="fs-input" type="number" id="currentAddressYears" name="currentAddressYears" required min="0" placeholder="Years">
+              <input class="fs-input" type="number" id="currentAddressMonths" name="currentAddressMonths" required min="0" max="11" placeholder="Months">
             </div>
-          </div>
-          <div class="fs-field">
-            <label class="fs-label" for="rentMortgage">Monthly Rent or Mortgage Payment $</label>
-            <input class="fs-input" type="number" id="rentMortgage" name="monthlyHousingPayment" min="0" placeholder="CAD">
           </div>
         </div>
 
-        <!-- ============ SECTION 04 — EMPLOYMENT ============ -->
+        <div class="fs-conditional" id="previousAddressBlock" hidden>
+          <p class="fs-sub-label">Previous Address</p>
+          <div class="fs-grid fs-grid-3">
+            <div class="fs-field">
+              <label class="fs-label" for="prevPostal">Postal Code <i class="req">*</i></label>
+              <input class="fs-input conditional-required" type="text" id="prevPostal" name="previousPostalCode" placeholder="T6E 5A6">
+            </div>
+            <div class="fs-field">
+              <label class="fs-label" for="prevAddressType">Address Type</label>
+              <input class="fs-input" type="text" id="prevAddressType" name="previousAddressType">
+            </div>
+            <div class="fs-field">
+              <label class="fs-label" for="prevCity">City <i class="req">*</i></label>
+              <input class="fs-input conditional-required" type="text" id="prevCity" name="previousCity" value="Edmonton">
+            </div>
+            <div class="fs-field">
+              <label class="fs-label" for="prevSuiteNo">Suite No.</label>
+              <input class="fs-input" type="text" id="prevSuiteNo" name="previousSuiteNo">
+            </div>
+            <div class="fs-field">
+              <label class="fs-label" for="prevAddressNo">Address No.</label>
+              <input class="fs-input" type="text" id="prevAddressNo" name="previousAddressNo">
+            </div>
+            <div class="fs-field">
+              <label class="fs-label" for="prevStreetName">Street Name <i class="req">*</i></label>
+              <input class="fs-input conditional-required" type="text" id="prevStreetName" name="previousStreetName">
+            </div>
+            <div class="fs-field">
+              <label class="fs-label" for="prevProvince">Province <i class="req">*</i></label>
+              <input class="fs-input conditional-required" type="text" id="prevProvince" name="previousProvince" value="Alberta">
+            </div>
+            <div class="fs-duration fs-field">
+              <label class="fs-label">Duration</label>
+              <div class="fs-split">
+                <input class="fs-input" type="number" id="previousAddressYears" name="previousAddressYears" min="0" placeholder="Years">
+                <input class="fs-input" type="number" id="previousAddressMonths" name="previousAddressMonths" min="0" max="11" placeholder="Months">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ SECTION 03 - HOME/MORTGAGE DETAILS ============ -->
         <div class="fs-section-head">
-          <span class="fs-num">04</span>
-          <h2 class="fs-section-title">Employment</h2>
+          <span class="fs-num">03</span>
+          <h2 class="fs-section-title">Home/Mortgage Details</h2>
           <div class="fs-section-rule"></div>
         </div>
-        <p class="fs-sub-label">Current Employment</p>
-        <div class="fs-grid">
+        <div class="fs-grid fs-grid-3">
           <div class="fs-field">
-            <label class="fs-label" for="employer">Employer Name <i class="req">*</i></label>
+            <label class="fs-label" for="housing">Home <i class="req">*</i></label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="housing" name="housing" required>
+                <option value="" selected>Select...</option>
+                <option>Own</option>
+                <option>Rent</option>
+                <option>Live with Family</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="mortgageAmount">Mortgage Amount $</label>
+            <input class="fs-input" type="number" id="mortgageAmount" name="mortgageAmount" min="0" placeholder="0.00">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="rentMortgage">Monthly Payment $</label>
+            <input class="fs-input" type="number" id="rentMortgage" name="monthlyHousingPayment" min="0" placeholder="0.00">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="marketValue">Market Value $</label>
+            <input class="fs-input" type="number" id="marketValue" name="marketValue" min="0" placeholder="0.00">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="mortgageHolder">Mortgage Holder</label>
+            <input class="fs-input" type="text" id="mortgageHolder" name="mortgageHolder">
+          </div>
+        </div>
+
+        <!-- ============ SECTION 04 - CURRENT EMPLOYMENT ============ -->
+        <div class="fs-section-head">
+          <span class="fs-num">04</span>
+          <h2 class="fs-section-title">Current Employment</h2>
+          <div class="fs-section-rule"></div>
+        </div>
+        <div class="fs-grid fs-grid-3">
+          <div class="fs-field">
+            <label class="fs-label" for="employmentType">Type <i class="req">*</i></label>
+            <div class="fs-select-wrap">
+              <select class="fs-select" id="employmentType" name="employmentType" required>
+                <option value="" selected>Select...</option>
+                <option>Full-time</option>
+                <option>Part-time</option>
+                <option>Self-employed</option>
+                <option>Contract</option>
+                <option>Retired</option>
+                <option>Student</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="employer">Employer <i class="req">*</i></label>
             <input class="fs-input" type="text" id="employer" name="employerName" required>
           </div>
           <div class="fs-field">
-            <label class="fs-label" for="jobTitle">Job Title <i class="req">*</i></label>
+            <label class="fs-label" for="employmentStatus">Status</label>
+            <input class="fs-input" type="text" id="employmentStatus" name="employmentStatus" placeholder="Active">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="jobTitle">Occupation <i class="req">*</i></label>
             <input class="fs-input" type="text" id="jobTitle" name="jobTitle" required>
           </div>
           <div class="fs-field">
-            <label class="fs-label" for="employerPhone">Employer Phone <i class="req">*</i></label>
+            <label class="fs-label" for="industryType">Industry Type</label>
+            <input class="fs-input" type="text" id="industryType" name="industryType">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="employerPhone">Telephone <i class="req">*</i></label>
             <input class="fs-input" type="tel" id="employerPhone" name="employerPhone" required>
           </div>
           <div class="fs-field">
-            <label class="fs-label" for="employmentType">Employment Type <i class="req">*</i></label>
-            <div class="fs-select-wrap">
-              <select class="fs-select" id="employmentType" name="employmentType" required>
-                <option value="" disabled selected>Select…</option>
-                <option value="Full-time">Full-time</option>
-                <option value="Part-time">Part-time</option>
-                <option value="Self-employed">Self-employed</option>
-                <option value="Contract">Contract</option>
-                <option value="Retired">Retired</option>
-                <option value="Student">Student</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
+            <label class="fs-label" for="employerExt">Ext.</label>
+            <input class="fs-input" type="text" id="employerExt" name="employerExt">
           </div>
           <div class="fs-field full">
-            <label class="fs-label" for="employerAddress">Employer Address</label>
+            <label class="fs-label" for="employerAddress">Employment Address</label>
             <input class="fs-input" type="text" id="employerAddress" name="employerAddress">
           </div>
           <div class="fs-field">
-            <label class="fs-label" for="timeAtJob">How Long at This Job? <i class="req">*</i></label>
-            <input class="fs-input" type="text" id="timeAtJob" name="timeAtJob" required placeholder="e.g. 2 years">
+            <label class="fs-label" for="employerCity">City</label>
+            <input class="fs-input" type="text" id="employerCity" name="employerCity" value="Edmonton">
           </div>
           <div class="fs-field">
-            <label class="fs-label" for="grossIncome">Gross Monthly Income $ <i class="req">*</i></label>
-            <input class="fs-input" type="number" id="grossIncome" name="grossMonthlyIncome" required min="0" placeholder="Before tax, CAD">
+            <label class="fs-label" for="employerProvince">Province</label>
+            <input class="fs-input" type="text" id="employerProvince" name="employerProvince" value="Alberta">
+          </div>
+          <div class="fs-duration fs-field">
+            <label class="fs-label">Duration <i class="req">*</i></label>
+            <div class="fs-split">
+              <input class="fs-input" type="number" id="currentJobYears" name="currentJobYears" required min="0" placeholder="Years">
+              <input class="fs-input" type="number" id="currentJobMonths" name="currentJobMonths" required min="0" max="11" placeholder="Months">
+            </div>
           </div>
         </div>
-        <p class="fs-note">If you've been at your current job less than 2 years, please add previous employer details in the Comments section below.</p>
 
-        <p class="fs-sub-label" style="margin-top:28px">Additional Income <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.18em;color:var(--mute)">(Optional)</span></p>
-        <div class="fs-grid">
+        <div class="fs-conditional" id="previousEmploymentBlock" hidden>
+          <p class="fs-sub-label">Previous Employment</p>
+          <div class="fs-grid fs-grid-3">
+            <div class="fs-field">
+              <label class="fs-label" for="previousEmploymentType">Type <i class="req">*</i></label>
+              <input class="fs-input conditional-required" type="text" id="previousEmploymentType" name="previousEmploymentType">
+            </div>
+            <div class="fs-field">
+              <label class="fs-label" for="previousEmployer">Employer <i class="req">*</i></label>
+              <input class="fs-input conditional-required" type="text" id="previousEmployer" name="previousEmployer">
+            </div>
+            <div class="fs-field">
+              <label class="fs-label" for="previousJobTitle">Occupation</label>
+              <input class="fs-input" type="text" id="previousJobTitle" name="previousJobTitle">
+            </div>
+            <div class="fs-field">
+              <label class="fs-label" for="previousEmployerPhone">Telephone</label>
+              <input class="fs-input" type="tel" id="previousEmployerPhone" name="previousEmployerPhone">
+            </div>
+            <div class="fs-field full">
+              <label class="fs-label" for="previousEmployerAddress">Employment Address</label>
+              <input class="fs-input" type="text" id="previousEmployerAddress" name="previousEmployerAddress">
+            </div>
+            <div class="fs-field">
+              <label class="fs-label" for="previousEmployerCity">City</label>
+              <input class="fs-input" type="text" id="previousEmployerCity" name="previousEmployerCity" value="Edmonton">
+            </div>
+            <div class="fs-field">
+              <label class="fs-label" for="previousEmployerProvince">Province</label>
+              <input class="fs-input" type="text" id="previousEmployerProvince" name="previousEmployerProvince" value="Alberta">
+            </div>
+            <div class="fs-duration fs-field">
+              <label class="fs-label">Duration</label>
+              <div class="fs-split">
+                <input class="fs-input" type="number" id="previousJobYears" name="previousJobYears" min="0" placeholder="Years">
+                <input class="fs-input" type="number" id="previousJobMonths" name="previousJobMonths" min="0" max="11" placeholder="Months">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ SECTION 05 - INCOME DETAILS ============ -->
+        <div class="fs-section-head">
+          <span class="fs-num">05</span>
+          <h2 class="fs-section-title">Income Details</h2>
+          <div class="fs-section-rule"></div>
+        </div>
+        <div class="fs-grid fs-grid-3">
           <div class="fs-field">
-            <label class="fs-label" for="addlIncomeSource">Source</label>
+            <label class="fs-label" for="grossIncome">Gross Income $ <i class="req">*</i></label>
+            <input class="fs-input" type="number" id="grossIncome" name="grossMonthlyIncome" required min="0" placeholder="Before tax">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="incomePer">Per</label>
             <div class="fs-select-wrap">
-              <select class="fs-select" id="addlIncomeSource" name="additionalIncomeSource">
-                <option value="" disabled selected>Select…</option>
-                <option value="Second Job">Second Job</option>
-                <option value="Spouse Income">Spouse Income</option>
-                <option value="Pension">Pension</option>
-                <option value="Disability">Disability</option>
-                <option value="Child Support">Child Support</option>
-                <option value="Rental">Rental</option>
-                <option value="Investment">Investment</option>
-                <option value="Other">Other</option>
+              <select class="fs-select" id="incomePer" name="incomePer">
+                <option>Monthly</option>
+                <option>Bi-weekly</option>
+                <option>Weekly</option>
+                <option>Yearly</option>
               </select>
             </div>
           </div>
           <div class="fs-field">
-            <label class="fs-label" for="addlIncomeAmt">Monthly Amount $</label>
+            <label class="fs-label" for="proofIncomeType">Proof of Income Type</label>
+            <input class="fs-input" type="text" id="proofIncomeType" name="proofIncomeType" placeholder="Paystub, bank statement">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="annualEmploymentGross">Annual Employment Gross $</label>
+            <input class="fs-input" type="number" id="annualEmploymentGross" name="annualEmploymentGross" min="0" placeholder="0.00">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="addlIncomeSource">Other Income Source</label>
+            <input class="fs-input" type="text" id="addlIncomeSource" name="additionalIncomeSource">
+          </div>
+          <div class="fs-field">
+            <label class="fs-label" for="addlIncomeAmt">Other Monthly Amount $</label>
             <input class="fs-input" type="number" id="addlIncomeAmt" name="additionalIncomeAmount" min="0">
           </div>
         </div>
 
-        <!-- ============ SECTION 05 — VEHICLE OF INTEREST ============ -->
+        <!-- ============ SECTION 06 - VEHICLE OF INTEREST ============ -->
         <div class="fs-section-head">
-          <span class="fs-num">05</span>
+          <span class="fs-num">06</span>
           <h2 class="fs-section-title">Vehicle of Interest</h2>
           <div class="fs-section-rule"></div>
         </div>
@@ -455,9 +615,9 @@
           </div>
         </div>
 
-        <!-- ============ SECTION 06 — CREDIT HISTORY ============ -->
+        <!-- ============ SECTION 07 - CREDIT HISTORY ============ -->
         <div class="fs-section-head">
-          <span class="fs-num">06</span>
+          <span class="fs-num">07</span>
           <h2 class="fs-section-title">Credit History</h2>
           <div class="fs-section-rule"></div>
         </div>
@@ -515,9 +675,9 @@
           </div>
         </div>
 
-        <!-- ============ SECTION 07 — COMMENTS ============ -->
+        <!-- ============ SECTION 08 - COMMENTS ============ -->
         <div class="fs-section-head">
-          <span class="fs-num">07</span>
+          <span class="fs-num">08</span>
           <h2 class="fs-section-title">Comments</h2>
           <div class="fs-section-rule"></div>
         </div>
@@ -526,9 +686,9 @@
           <textarea class="fs-textarea" id="comments" name="comments" rows="5" placeholder="Specific bike you've been eyeing, timing, questions, previous employment if you've been at current job less than 2 years — tell us here."></textarea>
         </div>
 
-        <!-- ============ SECTION 08 — AUTHORIZATION ============ -->
+        <!-- ============ SECTION 09 - AUTHORIZATION ============ -->
         <div class="fs-section-head">
-          <span class="fs-num">08</span>
+          <span class="fs-num">09</span>
           <h2 class="fs-section-title">Authorization</h2>
           <div class="fs-section-rule"></div>
         </div>
@@ -647,7 +807,7 @@
   <div class="footer-top">
     <div class="foot-brand">
       <a href="index.html" class="brand">
-        <div class="brand-mark"><img src="assets/logo-damaged.png" alt=""></div>
+        <div class="brand-mark"><img src="assets/logo-damaged.png" decoding="async" loading="lazy" decoding="async" alt=""></div>
         <div class="brand-name">UNFAZED<small>MOTORS · EST. 2026</small></div>
       </a>
       <p>Unfazed Motors — Built for those who move without fear. Premium powersports, straight-talk sales, hand-picked inventory.</p>
@@ -692,6 +852,6 @@
 <script src="js/main.js"></script>
 <script src="js/financing.js"></script>
 <div id="unfazedChatRoot"></div>
-<script src="js/chatbot.js"></script>
+<script src="js/chatbot.js" defer></script>
 </body>
 </html>

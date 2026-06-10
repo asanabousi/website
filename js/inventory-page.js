@@ -44,7 +44,7 @@ const API_BASE = 'https://unfazed-chatbot.unfazedmotors.workers.dev';
     const key = String(type || '').toLowerCase();
     const base = 'assets/category-icons/';
     function png(file) {
-      return `<img class="category-logo-img" src="${base}${file}" alt="" loading="lazy">`;
+      return `<img class="category-logo-img" src="${base}${file}" alt="" loading="lazy" decoding="async">`;
     }
     const sportbike = png('sportbike_icon_only.png');
     const naked = png('naked_icon_only.png');
@@ -115,10 +115,10 @@ const API_BASE = 'https://unfazed-chatbot.unfazedmotors.workers.dev';
     const previewPhotos = photos.slice(0, 8);
     const media = photos.length > 1
       ? `<div class="card-photo-strip" aria-label="${year} ${make} ${model} photos">
-          ${previewPhotos.map((photo, index) => `<img src="${photoUrl(photo)}" alt="${year} ${make} ${model}${index ? ` photo ${index + 1}` : ''}" loading="${index ? 'lazy' : 'eager'}">`).join('')}
+          ${previewPhotos.map((photo, index) => `<img src="${photoUrl(photo)}" alt="${year} ${make} ${model}${index ? ` photo ${index + 1}` : ''}" loading="lazy" decoding="async">`).join('')}
         </div>
         <span class="card-photo-count">${photos.length} photos</span>`
-      : (thumb ? `<img src="${thumb}" alt="${year} ${make} ${model}" loading="lazy">` : `<img src="assets/coming-soon.png" alt="Photos coming soon" loading="lazy">`);
+      : (thumb ? `<img src="${thumb}" alt="${year} ${make} ${model}" loading="lazy" decoding="async">` : `<img src="assets/coming-soon.png" alt="Photos coming soon" loading="lazy" decoding="async">`);
     const cc = f['Engine (cc)'];
     const hp = f['Horsepower'];
     const km = f['Mileage (km)'];
