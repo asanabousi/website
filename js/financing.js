@@ -40,10 +40,10 @@
     const push = (label, v) => { if (v) lines.push(`${label}: ${v}`); };
 
     push('Middle Name', fd.get('middleName'));
-    push('Date of Birth', fd.get('dob'));
-    push("Driver's Licence", fd.get('dlNumber'));
+    push('Date of Birth', fd.get('dateOfBirth'));
+    push("Driver's Licence", fd.get('driverLicense'));
     push('SIN', fd.get('sin'));
-    push('Province (ID)', fd.get('dlProvince'));
+    push('Province (ID)', fd.get('licenseProvince'));
     push('Marital Status', fd.get('maritalStatus'));
     push('Dependents', fd.get('dependents'));
     push('Alt Phone', fd.get('altPhone'));
@@ -128,44 +128,34 @@
 
     const fd = new FormData(form);
 
-    const formspreePromise = fetch(form.action, {
+    let airtableOk = false;
+
+    try {
+      const airtableResult = await fetch(`${API_BASE}/lead`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(buildAirtablePayload(fd))
+      });
+
+      airtableOk = airtableResult.ok;
+      if (!airtableOk) {
+        console.warn('Airtable lead failed:', airtableResult.status, await airtableResult.text());
+      }
+    } catch (err) {
+      console.warn('Airtable lead failed:', err);
+    }
+
+    fetch(form.action, {
       method: 'POST',
       body: fd,
       headers: { Accept: 'application/json' }
+    }).then((res) => {
+      if (!res.ok) console.warn('Formspree email copy failed:', res.status);
+    }).catch((err) => {
+      console.warn('Formspree email copy failed:', err);
     });
-    const airtablePromise = fetch(`${API_BASE}/lead`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(buildAirtablePayload(fd))
-    });
 
-    const [formspreeResult, airtableResult] = await Promise.allSettled([
-      formspreePromise,
-      airtablePromise
-    ]);
-
-    if (
-      airtableResult.status === 'rejected' ||
-      !airtableResult.value?.ok
-    ) {
-      console.warn(
-        'Airtable lead failed:',
-        airtableResult.status === 'rejected' ? airtableResult.reason : airtableResult.value.status
-      );
-    }
-
-    // Formspree — controls UX outcome
-    let formspreeOk = false;
-    if (formspreeResult.status === 'fulfilled' && formspreeResult.value.ok) {
-      formspreeOk = true;
-    } else {
-      console.warn(
-        'Formspree failed:',
-        formspreeResult.status === 'rejected' ? formspreeResult.reason : formspreeResult.value.status
-      );
-    }
-
-    if (formspreeOk) {
+    if (airtableOk) {
       const formWrap = document.getElementById('finFormWrap');
       if (formWrap) formWrap.style.display = 'none';
       if (successEl) {

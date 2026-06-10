@@ -82,7 +82,7 @@
     // Note about photos
     const photosCount = (photosInput?.files?.length) || 0;
     if (photosCount > 0) {
-      lines.push(`\n📷 ${photosCount} photo${photosCount > 1 ? 's' : ''} attached — see email submission for files.`);
+      lines.push(`\n${photosCount} photo${photosCount > 1 ? 's' : ''} attached - see email submission for files.`);
     }
 
     return lines.join('\n');
@@ -146,48 +146,39 @@
 
     const fd = new FormData(form);
 
-    // Formspree — sends form including file attachments
-    const formspreePromise = fetch(form.action, {
+    let airtableOk = false;
+
+    try {
+      const airtableResult = await fetch(`${API_BASE}/lead`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(buildAirtablePayload(fd))
+      });
+
+      airtableOk = airtableResult.ok;
+      if (!airtableOk) {
+        console.warn('Airtable lead failed:', airtableResult.status, await airtableResult.text());
+      }
+    } catch (err) {
+      console.warn('Airtable lead failed:', err);
+    }
+
+    // Formspree sends the email copy with photos. It should never block the Airtable lead.
+    fetch(form.action, {
       method: 'POST',
       body: fd,
       headers: { Accept: 'application/json' }
+    }).then((res) => {
+      if (!res.ok) console.warn('Formspree email copy failed:', res.status);
+    }).catch((err) => {
+      console.warn('Formspree email copy failed:', err);
     });
-    const airtablePromise = fetch(`${API_BASE}/lead`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(buildAirtablePayload(fd))
-    });
 
-    const [formspreeResult, airtableResult] = await Promise.allSettled([
-      formspreePromise,
-      airtablePromise
-    ]);
-
-    if (
-      airtableResult.status === 'rejected' ||
-      !airtableResult.value?.ok
-    ) {
-      console.warn(
-        'Airtable lead failed:',
-        airtableResult.status === 'rejected' ? airtableResult.reason : airtableResult.value.status
-      );
-    }
-
-    // Formspree controls UX outcome
-    let formspreeOk = false;
-    if (formspreeResult.status === 'fulfilled' && formspreeResult.value.ok) {
-      formspreeOk = true;
-    } else {
-      console.warn(
-        'Formspree failed:',
-        formspreeResult.status === 'rejected' ? formspreeResult.reason : formspreeResult.value.status
-      );
-    }
-
-    if (formspreeOk) {
+    if (airtableOk) {
       // Hide form, show success
       const formWrap = document.getElementById('conFormWrap');
-      form.style.display = 'none';
+      if (formWrap) formWrap.style.display = 'none';
+      else form.style.display = 'none';
       if (successEl) {
         successEl.classList.add('show');
         successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
